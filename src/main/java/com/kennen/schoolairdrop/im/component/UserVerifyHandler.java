@@ -14,6 +14,13 @@ import javax.annotation.PostConstruct;
 @Component
 public class UserVerifyHandler {
 
+    /**
+     * 验证用户身份
+     *
+     * @param userID 用户id
+     * @param token  验证信息
+     * @return 验证是否通过
+     */
     public boolean verifyUser(String userID, String token) {
         return userVerifyHandler.userVerifyService.verifyUser(userID, token);
     }
