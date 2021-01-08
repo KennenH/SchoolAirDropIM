@@ -1,0 +1,68 @@
+[2021/01/05-17:26:19] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 20216 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/01/05-17:26:19] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/01/05-17:26:24] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 5.416 seconds (JVM running for 6.388)
+[2021/01/05-17:27:13] [http-nio-2020-exec-4] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品获取成功
+[2021/01/05-17:27:52] [http-nio-2020-exec-6] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品添加成功
+[2021/01/05-17:28:13] [http-nio-2020-exec-2] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品获取成功
+[2021/01/05-17:28:14] [http-nio-2020-exec-10] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品详情获取成功
+[2021/01/05-17:28:19] [http-nio-2020-exec-9] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 在售物品获取成功
+[2021/01/05-17:28:23] [http-nio-2020-exec-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796067460594794496.jpg
+[2021/01/05-17:28:23] [http-nio-2020-exec-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796067460607377408.jpg
+[2021/01/05-17:28:23] [http-nio-2020-exec-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796067460611571712.jpg
+[2021/01/05-17:28:23] [http-nio-2020-exec-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796067460615766016.jpg
+[2021/01/05-17:28:23] [http-nio-2020-exec-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : id为1149的物品已删除
+[2021/01/05-17:28:23] [http-nio-2020-exec-4] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 在售物品获取成功
+[2021/01/05-17:28:27] [http-nio-2020-exec-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品详情获取成功
+[2021/01/05-17:28:43] [http-nio-2020-exec-6] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品详情获取成功
+[2021/01/05-17:28:56] [http-nio-2020-exec-2] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品详情获取成功
+[2021/01/05-17:29:15] [http-nio-2020-exec-7] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品详情获取成功
+[2021/01/05-17:29:52] [http-nio-2020-exec-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品详情获取成功
+[2021/01/05-17:29:58] [http-nio-2020-exec-6] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品详情获取成功
+[2021/01/05-17:30:20] [http-nio-2020-exec-7] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品详情获取成功
+[2021/01/05-18:28:13] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 11776 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/01/05-18:28:13] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/01/05-18:28:17] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.973 seconds (JVM running for 4.628)
+[2021/01/05-18:28:25] [http-nio-2020-exec-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品获取成功
+[2021/01/05-18:28:49] [http-nio-2020-exec-6] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品添加成功
+[2021/01/05-18:28:53] [http-nio-2020-exec-2] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 在售物品获取成功
+[2021/01/05-18:29:02] [http-nio-2020-exec-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796082798455685120.jpg
+[2021/01/05-18:29:02] [http-nio-2020-exec-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796082798468268032.jpg
+[2021/01/05-18:29:02] [http-nio-2020-exec-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796082798472462336.jpg
+[2021/01/05-18:29:02] [http-nio-2020-exec-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796082798476656640.jpg
+[2021/01/05-18:29:02] [http-nio-2020-exec-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : id为1150的物品已删除
+[2021/01/05-18:30:58] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 11120 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/01/05-18:30:58] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/01/05-18:31:02] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 4.072 seconds (JVM running for 4.826)
+[2021/01/05-18:31:17] [http-nio-2020-exec-2] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 在售物品获取成功
+[2021/01/05-18:31:24] [http-nio-2020-exec-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品获取成功
+[2021/01/05-18:31:50] [http-nio-2020-exec-4] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 在售物品获取成功
+[2021/01/05-18:32:36] [http-nio-2020-exec-5] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品获取成功
+[2021/01/05-18:33:57] [http-nio-2020-exec-7] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品添加成功
+[2021/01/05-18:41:01] [http-nio-2020-exec-9] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品获取成功
+[2021/01/05-18:41:05] [http-nio-2020-exec-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 在售物品获取成功
+[2021/01/05-18:41:09] [http-nio-2020-exec-2] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796084090099990528.jpg
+[2021/01/05-18:41:09] [http-nio-2020-exec-2] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796084090112573440.jpg
+[2021/01/05-18:41:09] [http-nio-2020-exec-2] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796084090116767744.jpg
+[2021/01/05-18:41:09] [http-nio-2020-exec-2] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : id为1151的物品已删除
+[2021/01/05-18:41:13] [http-nio-2020-exec-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 在售物品获取成功
+[2021/01/05-18:46:04] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 9104 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/01/05-18:46:04] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/01/05-18:46:08] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.764 seconds (JVM running for 4.413)
+[2021/01/05-18:46:53] [http-nio-2020-exec-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品添加成功
+[2021/01/05-18:46:53] [http-nio-2020-exec-2] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品添加成功
+[2021/01/05-18:47:06] [http-nio-2020-exec-4] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 在售物品获取成功
+[2021/01/05-18:47:11] [http-nio-2020-exec-6] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796087345643257856.jpg
+[2021/01/05-18:47:11] [http-nio-2020-exec-6] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796087345655840768.jpg
+[2021/01/05-18:47:11] [http-nio-2020-exec-6] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796087345660035072.jpg
+[2021/01/05-18:47:11] [http-nio-2020-exec-6] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : id为1152的物品已删除
+[2021/01/05-18:47:19] [http-nio-2020-exec-7] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796087346322735104.jpg
+[2021/01/05-18:47:19] [http-nio-2020-exec-7] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796087346331123712.jpg
+[2021/01/05-18:47:19] [http-nio-2020-exec-7] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796087346335318016.jpg
+[2021/01/05-18:47:19] [http-nio-2020-exec-7] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : id为1153的物品已删除
+[2021/01/05-18:47:22] [http-nio-2020-exec-8] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 在售物品获取成功
+[2021/01/05-18:52:42] [http-nio-2020-exec-2] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 物品添加成功
+[2021/01/05-18:52:45] [http-nio-2020-exec-4] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 在售物品获取成功
+[2021/01/05-18:52:51] [http-nio-2020-exec-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796088806238322688.jpg
+[2021/01/05-18:52:51] [http-nio-2020-exec-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : D:\assets\goods\img\796088806246711296.jpg
+[2021/01/05-18:52:51] [http-nio-2020-exec-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : id为1154的物品已删除
+[2021/01/05-18:52:51] [http-nio-2020-exec-6] [INFO ] [com.kennen.schoolairdrop.im.service.impl.GoodsImpl] : 在售物品获取成功
