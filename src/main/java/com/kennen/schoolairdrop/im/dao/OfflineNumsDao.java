@@ -14,10 +14,23 @@ import java.util.List;
  */
 public interface OfflineNumsDao extends JpaRepository<OfflineNum, String>, JpaSpecificationExecutor<OfflineNum> {
 
-    @Query(nativeQuery = true, value = "select * from offline_nums where offline_num > 0 and receiver_id = ?")
-    List<OfflineNum> findAllByReceiverID(String receiverID);
+    @Modifying
+    @Query(nativeQuery = true, value = "update offline_nums set offline_num_to_a = 0 where client_a_id = ?1 and client_b_id = ?2")
+    int ackOfflineNumsClientA(String receiverID, String senderID);
 
     @Modifying
-    @Query(nativeQuery = true, value = "update offline_nums set offline_num = 0 where receiver_id = ? and sender_id = ?")
-    int ackOfflineNums(String receiverID, String senderID);
+    @Query(nativeQuery = true, value = "update offline_nums set offline_num_to_b = 0 where client_a_id = ?2 and client_b_id = ?1")
+    int ackOfflineNumsClientB(String receiverID, String senderID);
+
+    @Modifying
+    @Query(nativeQuery = true, value = "insert into offline_nums (client_a_id, client_b_id, offline_num_to_a, fingerprint, latest_sender) " +
+            "values (?1, ?2, offline_num_to_a + 1, ?3, 0) " +
+            "on duplicate key update offline_num_to_a = offline_num_to_a + 1, fingerprint = ?3, latest_sender = 0")
+    void updateLatestOfflineClientA(String receiverID, String senderID, String fingerprint);
+
+    @Modifying
+    @Query(nativeQuery = true, value = "insert into offline_nums (client_a_id, client_b_id, offline_num_to_b, fingerprint, latest_sender) " +
+            "values (?2, ?1, offline_num_to_b + 1, ?3, 1) " +
+            "on duplicate key update offline_num_to_b = offline_num_to_b + 1, fingerprint = ?3, latest_sender = 1")
+    void updateLatestOfflineClientB(String receiverID, String senderID, String fingerprint);
 }

@@ -4,6 +4,7 @@
     <data-source source="LOCAL" name="school_airdrop_im@192.168.73.128" uuid="6a5aa690-beee-405c-a390-c1febc2d6d0d">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
+      <remarks>校园空投本地测试数据库</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://192.168.73.128:3306/school_airdrop_im</jdbc-url>
     </data-source>

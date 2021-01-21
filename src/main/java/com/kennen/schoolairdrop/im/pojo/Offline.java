@@ -14,15 +14,13 @@ import java.util.Date;
         @SecondaryTable(name = "offline2"),
         @SecondaryTable(name = "offline3"),
         @SecondaryTable(name = "offline4"),
-        @SecondaryTable(name = "offline5"),
-        @SecondaryTable(name = "offline6"),
-        @SecondaryTable(name = "offline7"),
-        @SecondaryTable(name = "offline8"),
-        @SecondaryTable(name = "offline9")
 })
 public class Offline {
 
     @Id
+    @Column(name = "offline_id")
+    private int offlineID;
+
     @Column(name = "finger_print")
     private String fingerPrint;
 
@@ -43,6 +41,14 @@ public class Offline {
 
     @Column(name = "received")
     private int received;
+
+    public int getOfflineID() {
+        return offlineID;
+    }
+
+    public void setOfflineID(int offlineID) {
+        this.offlineID = offlineID;
+    }
 
     public String getFingerPrint() {
         return fingerPrint;

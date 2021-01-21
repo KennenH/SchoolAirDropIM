@@ -13,6 +13,8 @@ import net.x52im.mobileimsdk.server.utils.LocalSendHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 /**
  * 与客服端的所有数据交互事件在此ServerEventListener子类中实现即可。
  */
@@ -44,7 +46,7 @@ public class ServerEventListenerImpl implements ServerEventListener {
      */
     @Override
     public int onUserLoginVerify(String token, String userId, String extra, Channel session) {
-        return userVerifyHandler.verifyUser(userId, token) ? 0 : 40000;
+        return userVerifyHandler.verifyUser(userId, token) ? 0 : 40000; // 验证通过返回0，否则返回40000的错误码
     }
 
     /**
@@ -204,6 +206,7 @@ public class ServerEventListenerImpl implements ServerEventListener {
     public boolean onTransferMessage_RealTimeSendFaild(Protocal p) {
         final String receiver = p.getTo();
 
+        // 再次尝试发送
         // 对方在线的情况下，才需要实时发送，否则走离线处理逻辑
         if (OnlineProcessor.isOnline(receiver)) {
             MBObserver resultObserver = (success, extraObj) -> {
@@ -233,10 +236,10 @@ public class ServerEventListenerImpl implements ServerEventListener {
      * <p>
      * 1、下次用户登录时先获取消息来自所有特定用户的个数
      * 即接收者与登录者匹配的所有消息个数
-     * {@link OfflineController#getOfflineNums(String)}
+     * {@link OfflineController#getOfflineSnapshot(String)}
      * <p>
      * 2、业务层通过给发送者id和token来获取具体消息
-     * {@link OfflineController#getOfflineMessageByID(String, String)}
+     * {@link OfflineController#pullOfflineByID(String, String, String, List)}}
      * <p>
      * 3、在确认用户收到之后先准备ack而不先发送，等待
      * 下一次消息获取时再将ack包一并发送，减少一半

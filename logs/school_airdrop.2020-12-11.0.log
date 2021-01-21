@@ -1,3 +1,0 @@
-[2020/12/11-11:23:21] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 8092 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
-[2020/12/11-11:23:21] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
-[2020/12/11-11:23:24] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.903 seconds (JVM running for 4.815)

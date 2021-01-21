@@ -23,22 +23,29 @@ public class MessageUtil {
         for (Object object : collection) {
             if (object instanceof ProtocalWithTime) {
                 ProtocalWithTime protocal = (ProtocalWithTime) object;
-                Offline offline = new Offline();
-                offline.setFingerPrint(protocal.getFp());
-                offline.setMessage(protocal.getDataContent());
-                offline.setMessageType(protocal.getTypeu());
-                offline.setReceived(protocal.isReceived());
-                offline.setSenderID(protocal.getFrom());
-                offline.setReceiverID(protocal.getTo());
-                offline.setSendTime(protocal.getSendTime());
-                list.add(offline);
+                list.add(assemblyOffline(protocal));
             }
         }
         return list;
     }
 
     /**
-     * 将指纹数组转换为以逗号分隔的字符串
+     * 将{@link ProtocalWithTime}组装为{@link Offline}返回
+     */
+    public static Offline assemblyOffline(ProtocalWithTime protocal) {
+        Offline offline = new Offline();
+        offline.setFingerPrint(protocal.getFp());
+        offline.setMessage(protocal.getDataContent());
+        offline.setMessageType(protocal.getTypeu());
+        offline.setReceived(protocal.isReceived());
+        offline.setSenderID(protocal.getFrom());
+        offline.setReceiverID(protocal.getTo());
+        offline.setSendTime(protocal.getSendTime());
+        return offline;
+    }
+
+    /**
+     * 将指纹数组转换为以单引号引用，逗号分隔的字符串
      *
      * @return 形如 'x','x','x' 一个x代表一个指纹
      */

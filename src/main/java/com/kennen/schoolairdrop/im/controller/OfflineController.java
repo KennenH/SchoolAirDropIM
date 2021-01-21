@@ -19,22 +19,37 @@ public class OfflineController {
     /**
      * 获取用户在离线时接收到的来自特定用户的消息
      *
-     * @param token    登录者用户token
-     * @param senderID 消息发送者userID
+     * @param token             登录者用户token
+     * @param senderID          消息发送者userID
+     * @param fingerprintLatest 临界消息
+     *                          若有，则代表需要拉取该消息后的消息
+     *                          若无，则代表需要拉取最新的消息
+     * @param fingerprintsToAck 需要ack的消息数组
      */
-    @PostMapping("/messages")
-    public ResponseResult getOfflineMessageByID(@RequestHeader("Authorization") String token, @RequestParam("sender_id") String senderID) {
-        return offlineService.getOfflineMessageByID(token, senderID);
+    @PostMapping("/pull")
+    public ResponseResult pullOfflineByID(@RequestHeader("Authorization") String token,
+                                          @RequestParam("sender_id") String senderID,
+                                          @RequestParam(
+                                                  name = "latest_fingerprint",
+                                                  required = false) String fingerprintLatest,
+                                          @RequestParam(
+                                                  name = "ack_fingerprints",
+                                                  required = false) List<String> fingerprintsToAck) {
+        if (fingerprintLatest != null) {
+            return offlineService.getOfflineSecondaryPull(token, senderID, fingerprintLatest, fingerprintsToAck);
+        } else {
+            return offlineService.getOfflinePrimaryPull(token, senderID);
+        }
     }
 
-    @PostMapping("/ack")
-    public ResponseResult offlineMessageAck(@RequestHeader("Authorization") String token, @RequestParam("fingerprints") List<String> fingerprints) {
-        return offlineService.offlineMessageAck(token, fingerprints);
-    }
-
-    @PostMapping("/offline_nums")
-    public ResponseResult getOfflineNums(@RequestHeader("Authorization") String token) {
-        return offlineService.getOfflineNums(token);
+    /**
+     * 获取离线消息快照，进入app时调用
+     *
+     * @return 数据样例
+     */
+    @PostMapping("/snapshot")
+    public ResponseResult getOfflineSnapshot(@RequestHeader("Authorization") String token) {
+        return offlineService.getOfflineSnapshot(token);
     }
 
 
