@@ -17,7 +17,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
          * addResourceHandler：访问映射路径·
          * addResourceLocations：资源绝对路径
          */
-        registry.addResourceHandler("/assets/goods/img/**").addResourceLocations("file:D:/assets/goods/img/");
-        registry.addResourceHandler("/assets/user/avatars/**").addResourceLocations("file:D:/assets/user/avatars/");
+//        registry.addResourceHandler("/assets/goods/img/**").addResourceLocations("file:D:/assets/goods/img/");
+//        registry.addResourceHandler("/assets/user/avatars/**").addResourceLocations("file:D:/assets/user/avatars/");
     }
 }

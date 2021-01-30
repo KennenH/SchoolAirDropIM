@@ -1,7 +1,12 @@
 package com.kennen.schoolairdrop.im.pojo;
 
+import com.kennen.schoolairdrop.im.utils.Constants;
+
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "offline_nums_detail_a0")
@@ -30,15 +35,11 @@ public class OfflineNumsDetail {
     @Column(name = "offline_num")
     private int offline_num;
 
-    @Column(name = "message_type")
-    private int message_type;
+    @Column(name = "finger_print")
+    private String finger_print;
 
-    @Column(name = "message")
-    private String message;
-
-    @Column(name = "send_time")
-    private Date send_time;
-
+    @Transient
+    private List<Offline> offline = new ArrayList<>(Constants.ONE_PAGE_NUM);
 
     public String getSender_id() {
         return sender_id;
@@ -67,30 +68,63 @@ public class OfflineNumsDetail {
     }
 
 
-    public int getMessage_type() {
-        return message_type;
+    public String getFinger_print() {
+        return finger_print;
     }
 
-    public void setMessage_type(int message_type) {
-        this.message_type = message_type;
-    }
-
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+    public void setFinger_print(String finger_print) {
+        this.finger_print = finger_print;
     }
 
 
-    public Date getSend_time() {
-        return send_time;
+    public List<Offline> getOffline() {
+        return offline;
     }
 
-    public void setSend_time(Date send_time) {
-        this.send_time = send_time;
+    public void setOffline(List<Offline> offline) {
+        this.offline = offline;
     }
 
+
+    public static class Offline implements Serializable {
+        private String finger_print;
+
+        private int message_type;
+
+        private String message;
+
+        private Date send_time;
+
+        public String getFinger_print() {
+            return finger_print;
+        }
+
+        public void setFinger_print(String finger_print) {
+            this.finger_print = finger_print;
+        }
+
+        public int getMessage_type() {
+            return message_type;
+        }
+
+        public void setMessage_type(int message_type) {
+            this.message_type = message_type;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+
+        public Date getSend_time() {
+            return send_time;
+        }
+
+        public void setSend_time(Date send_time) {
+            this.send_time = send_time;
+        }
+    }
 }

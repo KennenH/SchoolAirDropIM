@@ -1,6 +1,7 @@
 package com.kennen.schoolairdrop.im.dao;
 
 
+import com.kennen.schoolairdrop.im.bean.OfflineID;
 import com.kennen.schoolairdrop.im.pojo.Offline;
 import com.kennen.schoolairdrop.im.utils.Constants;
 import io.lettuce.core.dynamic.annotation.Param;
@@ -23,7 +24,8 @@ public interface OfflineDao extends JpaRepository<Offline, String>, JpaSpecifica
 
     /**
      * 二次拉取
-     * 默认一页为15条消息
+     * 默认一页为10条消息
+     * 这里不是以时间为依据找临界消息之后的消息，而是通过id，简单快速
      */
     @Query(value = "select * from offline?1 where received = 0 and receiver_id = ?2 and sender_id = ?3" +
             " and offline_id < ?4 order by offline_id desc limit " + Constants.ONE_PAGE_NUM,
@@ -45,6 +47,15 @@ public interface OfflineDao extends JpaRepository<Offline, String>, JpaSpecifica
                              String senderID);
 
     /**
+     * 替代首次拉取
+     * 上层应用在进入app时调用一次或者在app长时间休眠之后调用即可
+     * 获取所有用户发送给receiver的最新10条离线消息
+     */
+    @Query(value = "select * from offline_num_detail?1 where receiver_id = ?2 limit " + Constants.ONE_PAGE_NUM, nativeQuery = true)
+    List<Offline> findAllByReceiverID(int table,
+                                      String receiverID);
+
+    /**
      * 对具体消息进行ack
      *
      * @param table        表
@@ -60,7 +71,7 @@ public interface OfflineDao extends JpaRepository<Offline, String>, JpaSpecifica
      * @param table       表
      * @param fingerprint 消息指纹
      */
-    @Query(value = "select offline_id from offline?1 where finger_print = ?2", nativeQuery = true)
+    @Query(value = "select * from offline?1 where finger_print = ?2", nativeQuery = true)
     Offline findOneByFingerPrint(int table, String fingerprint);
 
     /**

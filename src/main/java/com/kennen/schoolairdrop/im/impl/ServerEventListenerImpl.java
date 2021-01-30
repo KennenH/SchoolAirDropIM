@@ -236,7 +236,7 @@ public class ServerEventListenerImpl implements ServerEventListener {
      * <p>
      * 1、下次用户登录时先获取消息来自所有特定用户的个数
      * 即接收者与登录者匹配的所有消息个数
-     * {@link OfflineController#getOfflineSnapshot(String)}
+     * {@link OfflineController#getOfflineNum(String)}
      * <p>
      * 2、业务层通过给发送者id和token来获取具体消息
      * {@link OfflineController#pullOfflineByID(String, String, String, List)}}

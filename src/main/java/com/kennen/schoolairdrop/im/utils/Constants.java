@@ -37,5 +37,5 @@ public class Constants {
     /**
      * 一页数据量
      */
-    public static final int ONE_PAGE_NUM = 15;
+    public static final int ONE_PAGE_NUM = 10;
 }

@@ -1,26 +1,19 @@
 package com.kennen.schoolairdrop.im.service.impl;
 
 import com.kennen.schoolairdrop.im.bean.ProtocalWithTime;
-import com.kennen.schoolairdrop.im.dao.OfflineDao;
-import com.kennen.schoolairdrop.im.dao.OfflineNumsDao;
-import com.kennen.schoolairdrop.im.dao.OfflineNumsDetailDao;
-import com.kennen.schoolairdrop.im.pojo.Offline;
-import com.kennen.schoolairdrop.im.pojo.OfflineNum;
-import com.kennen.schoolairdrop.im.pojo.OfflineNumsDetail;
+import com.kennen.schoolairdrop.im.dao.*;
+import com.kennen.schoolairdrop.im.pojo.*;
 import com.kennen.schoolairdrop.im.utils.Constants;
 import com.kennen.schoolairdrop.im.utils.MessageUtil;
-import com.kennen.schoolairdrop.im.utils.Redis;
-import com.kennen.schoolairdrop.im.dao.AccessTokenDao;
-import com.kennen.schoolairdrop.im.pojo.AccessToken;
 import com.kennen.schoolairdrop.im.response.ResponseResult;
 import com.kennen.schoolairdrop.im.service.IOfflineService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @Service
@@ -40,7 +33,7 @@ public class OfflineImpl implements IOfflineService {
     private OfflineNumsDetailDao offlineNumsDetailDao;
 
     @Autowired
-    private Redis redis;
+    private OfflineFromAllDao offlineFromAllDao;
 
     @Override
     public ResponseResult getOfflineSecondaryPull(String token, String senderID, String fingerprintLatest, List<String> fingerprintsToAck) {
@@ -122,7 +115,7 @@ public class OfflineImpl implements IOfflineService {
     }
 
     @Override
-    public ResponseResult getOfflineSnapshot(String token) {
+    public ResponseResult getOfflineNum(String token) {
         token = token.substring(7);
         AccessToken accessToken = accessTokenDao.findOneByAccessToken(token);
         if (accessToken != null) {
@@ -144,8 +137,34 @@ public class OfflineImpl implements IOfflineService {
 //                }
 //            }
 
+            // 获取来自所有用户发送给receiver的消息数量，已经以senderID进行排序
             List<OfflineNumsDetail> offlineNumsDetails = offlineNumsDetailDao.findAllByID(table, receiverID);
-            return ResponseResult.SUCCESS("离线消息快照获取成功").setData(offlineNumsDetails);
+
+            // 获取来自以上所有用户的最新10条消息，已经以senderID进行排序
+            List<OfflineFromAll> offlineFromAlls = offlineFromAllDao.findFromAll(table, receiverID);
+
+            // 组装消息数量和来自各个用户的10条消息
+            // 这里由于以上两组数据都已经通过senderID进行排序，因此在这里可以以线性的时间复杂度完成组装操作
+            // 时间复杂度与来自所有用户的消息的数量成正比
+            int index = 0;
+            for (OfflineFromAll offline : offlineFromAlls) {
+                // 第index个发送者
+                OfflineNumsDetail offlineNumsDetail = offlineNumsDetails.get(index);
+
+                // 复制该离线消息到OfflineNumsDetail可以存放的子类中
+                OfflineNumsDetail.Offline bean = new OfflineNumsDetail.Offline();
+                BeanUtils.copyProperties(offline, bean);
+
+                if (offline.getSender_id().equals(offlineNumsDetail.getSender_id())) {
+                    // 若当前的消息sender_id与当前第index发送者的id一致，则将其放入该发送者的offline中
+                    offlineNumsDetail.getOffline().add(bean);
+                } else {
+                    // 否则如果当前消息的sender_id与当前发送者的id不一致，则直接放入下一个发送者offline中
+                    offlineNumsDetails.get(++index).getOffline().add(bean);
+                }
+            }
+
+            return ResponseResult.SUCCESS("离线消息数量获取成功").setData(offlineNumsDetails);
         } else {
             return ResponseResult.FAILED("用户不存在或者鉴权信息已过期").setData(false);
         }

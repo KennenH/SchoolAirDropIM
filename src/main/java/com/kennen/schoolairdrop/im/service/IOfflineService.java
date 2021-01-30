@@ -10,9 +10,9 @@ public interface IOfflineService {
 
     /**
      * 二次拉取
-     * 拉取临界消息后的15条消息并ack上次拉取的消息集合
+     * 拉取临界消息后的10条消息并ack上次拉取的消息集合
      * <p>
-     * 上层应用在查看获取到的最新15条记录后若继续查看则需要调用该方法
+     * 上层应用在查看获取到的最新10条记录后若继续查看则需要调用该方法
      *
      * @param token             接收者token，即调用该方法的用户
      * @param senderID          消息发送者
@@ -23,7 +23,7 @@ public interface IOfflineService {
 
     /**
      * 首次拉取
-     * 拉取最新15条消息记录并ack未读消息数
+     * 拉取最新10条消息记录并ack未读消息数
      * <p>
      * 上层应用应在进入与某人的聊天界面时再拉取针对该用户发来的消息内容
      * 服务器实现为先将对应的发送者接收者离线消息从redis中拉出来，放入
@@ -42,7 +42,7 @@ public interface IOfflineService {
      *
      * @param token 接收者token
      */
-    ResponseResult getOfflineSnapshot(String token);
+    ResponseResult getOfflineNum(String token);
 
     /**
      * 存储未被在线收到的消息，等待接收者主动拉取

@@ -29,27 +29,25 @@ public class OfflineController {
     @PostMapping("/pull")
     public ResponseResult pullOfflineByID(@RequestHeader("Authorization") String token,
                                           @RequestParam("sender_id") String senderID,
-                                          @RequestParam(
-                                                  name = "latest_fingerprint",
-                                                  required = false) String fingerprintLatest,
+                                          @RequestParam("latest_fingerprint") String fingerprintLatest,
                                           @RequestParam(
                                                   name = "ack_fingerprints",
                                                   required = false) List<String> fingerprintsToAck) {
-        if (fingerprintLatest != null) {
-            return offlineService.getOfflineSecondaryPull(token, senderID, fingerprintLatest, fingerprintsToAck);
-        } else {
-            return offlineService.getOfflinePrimaryPull(token, senderID);
-        }
+        return offlineService.getOfflineSecondaryPull(token, senderID, fingerprintLatest, fingerprintsToAck);
     }
 
     /**
-     * 获取离线消息快照，进入app时调用
-     *
-     * @return 数据样例
+     * 获取离线消息数量，进入app时调用
+     * <p>
+     * 实际获取的数据包含：
+     * ①来自每个给我发送了消息的用户的离线消息数量以及最后一条消息指纹
+     * ②来自每个这些用户的最新10条消息
+     * <p>
+     * 这样便可以使用最后一条消息的指纹获取最后一条消息的内容和时间戳
      */
-    @PostMapping("/snapshot")
-    public ResponseResult getOfflineSnapshot(@RequestHeader("Authorization") String token) {
-        return offlineService.getOfflineSnapshot(token);
+    @PostMapping("/num")
+    public ResponseResult getOfflineNum(@RequestHeader("Authorization") String token) {
+        return offlineService.getOfflineNum(token);
     }
 
 
