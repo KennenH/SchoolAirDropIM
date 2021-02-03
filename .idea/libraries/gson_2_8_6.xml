@@ -7,7 +7,6 @@
       <root url="jar://$PROJECT_DIR$/lib/netty-all-4.1.50.Final.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/rabbitmq-client.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.21.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/slf4j-log4j12-1.7.21.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

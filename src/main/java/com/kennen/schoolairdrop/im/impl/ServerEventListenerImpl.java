@@ -46,7 +46,8 @@ public class ServerEventListenerImpl implements ServerEventListener {
      */
     @Override
     public int onUserLoginVerify(String token, String userId, String extra, Channel session) {
-        return userVerifyHandler.verifyUser(userId, token) ? 0 : 40000; // 验证通过返回0，否则返回40000的错误码
+//        return userVerifyHandler.verifyUser(userId, token) ? 0 : 40000; // 验证通过返回0，否则返回40000的错误码
+        return 0;
     }
 
     /**
