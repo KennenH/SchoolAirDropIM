@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -68,7 +69,8 @@ public class OfflineImpl implements IOfflineService {
 
             return ResponseResult.SUCCESS("离线消息获取成功").setData(dataBaseMessages);
         }
-        return ResponseResult.FAILED("用户不存在或验证信息已过期 " + token);
+        // 移动端收取到的结果不论失败还是成功，bean的结构必须要一致，否则会导致 IllegalStateException
+        return ResponseResult.FAILED("用户不存在或验证信息已过期 " + token).setData(new ArrayList<>());
     }
 
     @Override
@@ -98,7 +100,7 @@ public class OfflineImpl implements IOfflineService {
 
             return ResponseResult.SUCCESS("离线消息获取成功").setData(dataBaseMessages);
         }
-        return ResponseResult.FAILED("用户不存在或验证信息已过期 " + token);
+        return ResponseResult.FAILED("用户不存在或验证信息已过期 " + token).setData(new ArrayList<>());
     }
 
     /**
@@ -166,7 +168,7 @@ public class OfflineImpl implements IOfflineService {
 
             return ResponseResult.SUCCESS("离线消息数量获取成功").setData(offlineNumsDetails);
         } else {
-            return ResponseResult.FAILED("用户不存在或者鉴权信息已过期").setData(false);
+            return ResponseResult.FAILED("用户不存在或者鉴权信息已过期").setData(new ArrayList<>());
         }
     }
 
