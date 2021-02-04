@@ -12,6 +12,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.Access;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +90,7 @@ public class OfflineImpl implements IOfflineService {
             } else if (client > 0) {
                 offlineNumsDao.ackOfflineNumsClientB(receiverID, senderID);
             } else {
-                return ResponseResult.FAILED("不可发送消息给自己");
+                return ResponseResult.FAILED("不可发送消息给自己").setData(new ArrayList<>());
             }
 
             // 分页获取离线消息，按发送时间倒序排序
@@ -118,26 +119,11 @@ public class OfflineImpl implements IOfflineService {
 
     @Override
     public ResponseResult getOfflineNum(String token) {
-        token = token.substring(7);
+//        token = token.substring(7);
         AccessToken accessToken = accessTokenDao.findOneByAccessToken(token);
         if (accessToken != null) {
             String receiverID = accessToken.getUserID();
             int table = receiverID.hashCode() % Constants.OFFLINE_TABLE_NUMS;
-
-            // todo 使用redis优化离线消息即时存储
-//            // 取出在redis中的离线消息集合
-//            Map<Object, Object> redisMessages = redis.getHashMap(token);
-//
-//            // 若redis中有消息缓存则转存消息并删除响应缓存
-//            if (redisMessages.size() > 0) {
-//                // 将取出的redis离线消息放入数据库中
-//                offlineDao.saveAll(MessageUtil.protocalToOffline(redisMessages.values()));
-//
-//                // 删除redis中的离线缓存
-//                for (Map.Entry<Object, Object> entry : redisMessages.entrySet()) {
-//                    redis.deleteHash(token, entry.getKey());
-//                }
-//            }
 
             // 获取来自所有用户发送给receiver的消息数量，已经以senderID进行排序
             List<OfflineNumsDetail> offlineNumsDetails = offlineNumsDetailDao.findAllByID(table, receiverID);

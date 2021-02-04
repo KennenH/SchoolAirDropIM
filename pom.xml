@@ -82,6 +82,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+
+
+        <!-- 第三方jar包依赖 -->
+        <dependency>
+            <groupId>com.mobileim</groupId>
+            <artifactId>mobileim-sdk</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/mobileim-sdk-1.0.0.jar</systemPath>
+        </dependency>
+        <!--第三方jar包依赖-->
+
     </dependencies>
 
     <build>
@@ -96,6 +108,20 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <!--                将lib目录下的jar包拷贝到BOOT-INF/lib/目录下-->
+                <directory>lib</directory>
+                <targetPath>BOOT-INF/lib/</targetPath>
+                <includes>
+                    <include>**/*.jar</include>
+                </includes>
+            </resource>
+            <!--                如果不加上这个配置，src/main/resource目录下的配置文件就不会打到jar包下去了-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <targetPath>BOOT-INF/classes/</targetPath>
+            </resource>
+        </resources>
     </build>
-
 </project>
