@@ -119,7 +119,7 @@ public class OfflineImpl implements IOfflineService {
 
     @Override
     public ResponseResult getOfflineNum(String token) {
-//        token = token.substring(7);
+        token = token.substring(7);
         AccessToken accessToken = accessTokenDao.findOneByAccessToken(token);
         if (accessToken != null) {
             String receiverID = accessToken.getUserID();
