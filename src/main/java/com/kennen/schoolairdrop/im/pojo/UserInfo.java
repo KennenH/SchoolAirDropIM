@@ -4,118 +4,78 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Column;
+import java.util.Date;
 
 @Entity
 @Table(name = "user_info")
 public class UserInfo {
 
     @Id
-    @Column(name = "uid")
-    private int uid;
+    @Column(name = "user_id")
+    private int user_id;
 
-    @Column(name = "uname")
-    private String uname;
+    @Column(name = "user_name")
+    private String user_name;
 
-    @Column(name = "ugender")
-    private String ugender;
+    @Column(name = "user_avatar")
+    private String user_avatar;
 
-    @Column(name = "user_img_path")
-    private String user_img_path;
+    @Column(name = "last_login_time")
+    private Date last_login_time;
 
-    @Column(name = "ualipay")
-    private String ualipay;
+    @Column(name = "last_login_address")
+    private String last_login_address;
 
-    @Column(name = "uphone")
-    private String uphone;
+    @Column(name = "createtime")
+    private int createtime;
 
-    @Column(name = "device_token")
-    private String device_token;
-
-    @Column(name = "count_on_sale")
-    private long count_on_sale;
-
-    @Column(name = "registration_id")
-    private String registration_id;
-
-
-    public int getUid() {
-        return uid;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setUid(int uid) {
-        this.uid = uid;
+    public void setUser_id(int uid) {
+        this.user_id = uid;
     }
 
 
-    public String getUname() {
-        return uname;
+    public String getUser_name() {
+        return user_name;
     }
 
-    public void setUname(String uname) {
-        this.uname = uname;
-    }
-
-
-    public String getUgender() {
-        return ugender;
-    }
-
-    public void setUgender(String ugender) {
-        this.ugender = ugender;
+    public void setUser_name(String uname) {
+        this.user_name = uname;
     }
 
 
-    public String getUser_img_path() {
-        return user_img_path;
+    public String getUser_avatar() {
+        return user_avatar;
     }
 
-    public void setUser_img_path(String user_img_path) {
-        this.user_img_path = user_img_path;
+    public void setUser_avatar(String user_img_path) {
+        this.user_avatar = user_img_path;
     }
 
-
-    public String getUalipay() {
-        return ualipay;
+    public Date getLast_login_time() {
+        return last_login_time;
     }
 
-    public void setUalipay(String ualipay) {
-        this.ualipay = ualipay;
+    public void setLast_login_time(Date last_login_time) {
+        this.last_login_time = last_login_time;
     }
 
-
-    public String getUphone() {
-        return uphone;
+    public String getLast_login_address() {
+        return last_login_address;
     }
 
-    public void setUphone(String uphone) {
-        this.uphone = uphone;
+    public void setLast_login_address(String last_login_address) {
+        this.last_login_address = last_login_address;
     }
 
-
-    public String getDevice_token() {
-        return device_token;
+    public int getCreatetime() {
+        return createtime;
     }
 
-    public void setDevice_token(String device_token) {
-        this.device_token = device_token;
+    public void setCreatetime(int createtime) {
+        this.createtime = createtime;
     }
-
-
-    public long getCount_on_sale() {
-        return count_on_sale;
-    }
-
-    public void setCount_on_sale(long count_on_sale) {
-        this.count_on_sale = count_on_sale;
-    }
-
-
-    public String getRegistration_id() {
-        return registration_id;
-    }
-
-    public void setRegistration_id(String registration_id) {
-        this.registration_id = registration_id;
-    }
-
 }

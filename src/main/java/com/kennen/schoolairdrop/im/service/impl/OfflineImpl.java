@@ -12,7 +12,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.Access;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +23,9 @@ public class OfflineImpl implements IOfflineService {
 
     @Autowired
     private AccessTokenDao accessTokenDao;
+
+    @Autowired
+    private UserDao userDao;
 
     @Autowired
     private OfflineDao offlineDao;
@@ -44,7 +46,7 @@ public class OfflineImpl implements IOfflineService {
         AccessToken accessToken = accessTokenDao.findOneByAccessToken(token);
 
         if (accessToken != null) {
-            String receiverID = accessToken.getUserID();
+            String receiverID = String.valueOf(accessToken.getUserID());
             int tableNum = receiverID.hashCode() % Constants.OFFLINE_TABLE_NUMS;
 
             // 通过第一条和最后一条聊天记录的指纹码来找到开始和结束的临界id
@@ -80,7 +82,7 @@ public class OfflineImpl implements IOfflineService {
         AccessToken accessToken = accessTokenDao.findOneByAccessToken(token);
 
         if (accessToken != null) {
-            String receiverID = accessToken.getUserID();
+            String receiverID = String.valueOf(accessToken.getUserID());
             int tableNum = receiverID.hashCode() % Constants.OFFLINE_TABLE_NUMS;
 
             int client = receiverID.compareTo(senderID);
@@ -107,12 +109,12 @@ public class OfflineImpl implements IOfflineService {
     /**
      * 消息本体ack
      */
-    private int offlineMessageAck(String receiverID, List<String> fingerprints) {
+    private void offlineMessageAck(String receiverID, List<String> fingerprints) {
         // 将需要ack的消息数组转换为以单引号引用，逗号分隔的指纹字符串
         String fingerPrintsSql = MessageUtil.listToStringSplitWithDot(fingerprints);
 
         // ack消息本体
-        return offlineDao.offlineMessagesAck(
+        offlineDao.offlineMessagesAck(
                 receiverID.hashCode() % Constants.OFFLINE_TABLE_NUMS,
                 fingerPrintsSql);
     }
@@ -122,7 +124,7 @@ public class OfflineImpl implements IOfflineService {
         token = token.substring(7);
         AccessToken accessToken = accessTokenDao.findOneByAccessToken(token);
         if (accessToken != null) {
-            String receiverID = accessToken.getUserID();
+            String receiverID = String.valueOf(accessToken.getUserID());
             int table = receiverID.hashCode() % Constants.OFFLINE_TABLE_NUMS;
 
             // 获取来自所有用户发送给receiver的消息数量，已经以senderID进行排序
@@ -130,6 +132,7 @@ public class OfflineImpl implements IOfflineService {
 
             // 获取来自以上所有用户的最新10条消息，已经以senderID进行排序
             List<OfflineFromAll> offlineFromAlls = offlineFromAllDao.findFromAll(table, receiverID);
+
 
             // 组装消息数量和来自各个用户的10条消息
             // 这里由于以上两组数据都已经通过senderID进行排序，因此在这里可以以线性的时间复杂度完成组装操作
@@ -139,11 +142,19 @@ public class OfflineImpl implements IOfflineService {
                 // 第index个发送者
                 OfflineNumsDetail offlineNumsDetail = offlineNumsDetails.get(index);
 
+                // 获取发送者用户信息
+                String senderId = offlineNumsDetail.getSender_id();
+                UserInfo senderInfo = userDao.getUserInfoByID(senderId);
+                offlineNumsDetail.setSender_info(new OfflineNumsDetail.SenderInfo(
+                        senderInfo.getUser_id(),
+                        senderInfo.getUser_name(),
+                        senderInfo.getUser_avatar()));
+
                 // 复制该离线消息到OfflineNumsDetail可以存放的子类中
                 OfflineNumsDetail.Offline bean = new OfflineNumsDetail.Offline();
                 BeanUtils.copyProperties(offline, bean);
 
-                if (offline.getSender_id().equals(offlineNumsDetail.getSender_id())) {
+                if (offline.getSender_id().equals(senderId)) {
                     // 若当前的消息sender_id与当前第index发送者的id一致，则将其放入该发送者的offline中
                     offlineNumsDetail.getOffline().add(bean);
                 } else {
@@ -160,17 +171,15 @@ public class OfflineImpl implements IOfflineService {
 
     @Override
     public boolean saveOfflineMessage(ProtocalWithTime protocalWithTime) {
-        final String senderToken = protocalWithTime.getFrom();
+        final String senderID = protocalWithTime.getFrom();
         // 从数据库中查询发送者是否存在
-        final AccessToken userToken = accessTokenDao.findOneByAccessToken(senderToken);
+        final UserInfo userInfo = userDao.getUserInfoByID(senderID);
 
         // token存在，发送者用户存在
-        if (userToken != null) {
+        if (userInfo != null) {
             // 将消息发送者token换为发送者id
-            protocalWithTime.setFrom(userToken.getUserID());
             String fingerPrint = protocalWithTime.getFp();
             String receiverID = protocalWithTime.getTo();
-            String senderID = protocalWithTime.getFrom();
 
             int client = receiverID.compareTo(senderID);
             // 更新两个用户之间的最新离线消息
@@ -181,9 +190,6 @@ public class OfflineImpl implements IOfflineService {
             } else {
                 return false;
             }
-
-            // 保存离线消息 todo 使用redis优化离线消息存储
-//            redis.setHash(receiverID, fingerPrint, protocalWithTime);
 
             int table = receiverID.hashCode() % Constants.OFFLINE_TABLE_NUMS;
             try {

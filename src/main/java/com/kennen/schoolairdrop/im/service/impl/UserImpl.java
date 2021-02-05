@@ -37,10 +37,9 @@ public class UserImpl implements IUserService {
 
         UserInfo info = userDao.getUserInfoByID(userID);
 
-        dataBean.setUalipay(info.getUalipay());
-        dataBean.setUid(info.getUid());
-        dataBean.setUname(info.getUname());
-        dataBean.setUser_img_path(info.getUser_img_path());
+        dataBean.setUid(info.getUser_id());
+        dataBean.setUname(info.getUser_name());
+        dataBean.setUser_img_path(info.getUser_avatar());
         list.add(dataBean);
         bean.setData(list);
         bean.setSuccess(true);
@@ -58,7 +57,7 @@ public class UserImpl implements IUserService {
     public UpdateAvatar updateAvatar(String photo, int uid) {
         UserInfo info = userDao.getUserInfoByID(uid);
 
-        File file = new File(Constants.AVATAR_DIR + info.getUser_img_path());
+        File file = new File(Constants.AVATAR_DIR + info.getUser_avatar());
         if (file.exists()) {
             file.delete();
         }

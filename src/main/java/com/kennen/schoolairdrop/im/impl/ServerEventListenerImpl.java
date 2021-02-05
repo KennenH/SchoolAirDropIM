@@ -38,16 +38,15 @@ public class ServerEventListenerImpl implements ServerEventListener {
      * 否则会将验证结果（本方法返回值错误码通过客户端的 ChatBaseEvent.onLoginResponse(int userId, int errorCode)
      * 方法进行回调）通知客户端）。
      *
-     * @param token   用于身份鉴别和合法性检查的token，它可能是登陆密码，也可能是通过前置单点登陆接口拿到的token等，具体意义由业务层决定
      * @param userId  传递过来的唯一id，保证唯一就可以通信，可能是登陆用户名、也可能是任意不重复的id等，具体意义由业务层决定
+     * @param token   用于身份鉴别和合法性检查的token，它可能是登陆密码，也可能是通过前置单点登陆接口拿到的token等，具体意义由业务层决定
      * @param extra   额外信息字符串。本字段目前为保留字段，供上层应用自行放置需要的内容
      * @param session 此客户端连接对应的 netty “会话”
      * @return 0 表示登陆验证通过，否则可以返回用户自已定义的错误码，错误码值应为：>=1025的整数
      */
     @Override
-    public int onUserLoginVerify(String token, String userId, String extra, Channel session) {
-//        return userVerifyHandler.verifyUser(userId, token) ? 0 : 40000; // 验证通过返回0，否则返回40000的错误码
-        return 0;
+    public int onUserLoginVerify(String userId, String token, String extra, Channel session) {
+        return userVerifyHandler.verifyUser(userId, token) ? 0 : 40000; // 验证通过返回0，否则返回40000的错误码
     }
 
     /**

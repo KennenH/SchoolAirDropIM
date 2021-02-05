@@ -39,6 +39,9 @@ public class OfflineNumsDetail {
     private String finger_print;
 
     @Transient
+    private SenderInfo sender_info;
+
+    @Transient
     private List<Offline> offline = new ArrayList<>(Constants.ONE_PAGE_NUM);
 
     public String getSender_id() {
@@ -76,6 +79,13 @@ public class OfflineNumsDetail {
         this.finger_print = finger_print;
     }
 
+    public SenderInfo getSender_info() {
+        return sender_info;
+    }
+
+    public void setSender_info(SenderInfo sender_info) {
+        this.sender_info = sender_info;
+    }
 
     public List<Offline> getOffline() {
         return offline;
@@ -85,7 +95,51 @@ public class OfflineNumsDetail {
         this.offline = offline;
     }
 
+    /**
+     * 拉取离线消息数量时返回的发送者信息
+     */
+    public static class SenderInfo implements Serializable {
 
+        public SenderInfo(int sender_id, String sender_name, String sender_avatar) {
+            this.sender_id = sender_id;
+            this.sender_name = sender_name;
+            this.sender_avatar = sender_avatar;
+        }
+
+        private int sender_id;
+
+        private String sender_name;
+
+        private String sender_avatar;
+
+        public int getSender_id() {
+            return sender_id;
+        }
+
+        public void setSender_id(int sender_id) {
+            this.sender_id = sender_id;
+        }
+
+        public String getSender_name() {
+            return sender_name;
+        }
+
+        public void setSender_name(String sender_name) {
+            this.sender_name = sender_name;
+        }
+
+        public String getSender_avatar() {
+            return sender_avatar;
+        }
+
+        public void setSender_avatar(String sender_avatar) {
+            this.sender_avatar = sender_avatar;
+        }
+    }
+
+    /**
+     * 拉取离线消息时一并返回的离线消息
+     */
     public static class Offline implements Serializable {
         private String finger_print;
 

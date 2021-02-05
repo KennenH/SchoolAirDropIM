@@ -1,6 +1,7 @@
 package com.kennen.schoolairdrop.im.component;
 
 import com.kennen.schoolairdrop.im.service.IUserVerifyService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +11,7 @@ import javax.annotation.PostConstruct;
  * @author kennen
  * @date 2020/12/13 19:35
  */
-
+@Slf4j
 @Component
 public class UserVerifyHandler {
 

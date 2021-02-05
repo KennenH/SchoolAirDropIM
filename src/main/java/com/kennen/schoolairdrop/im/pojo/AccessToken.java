@@ -13,8 +13,8 @@ public class AccessToken {
     private String accessToken;
 
     @Id
-    @Column(name = "uid")
-    private String userID;
+    @Column(name = "user_id")
+    private int userID;
 
     public String getAccessToken() {
         return accessToken;
@@ -24,11 +24,11 @@ public class AccessToken {
         this.accessToken = accessToken;
     }
 
-    public String getUserID() {
+    public int getUserID() {
         return userID;
     }
 
-    public void setUserID(String userID) {
+    public void setUserID(int userID) {
         this.userID = userID;
     }
 }
