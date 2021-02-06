@@ -133,7 +133,6 @@ public class OfflineImpl implements IOfflineService {
             // 获取来自以上所有用户的最新10条消息，已经以senderID进行排序
             List<OfflineFromAll> offlineFromAlls = offlineFromAllDao.findFromAll(table, receiverID);
 
-
             // 组装消息数量和来自各个用户的10条消息
             // 这里由于以上两组数据都已经通过senderID进行排序，因此在这里可以以线性的时间复杂度完成组装操作
             // 时间复杂度与来自所有用户的消息的数量成正比

@@ -116,21 +116,21 @@
         <!--打包时加入下面的配置，否则有你受的-->
         <!--而通过IJ直接运行时要将下面的配置注释掉，否则也有你受的-->
 
-        <!--        <resources>-->
-        <!--            <resource>-->
-        <!--                &lt;!&ndash;                将lib目录下的jar包拷贝到BOOT-INF/lib/目录下&ndash;&gt;-->
-        <!--                <directory>lib</directory>-->
-        <!--                <targetPath>BOOT-INF/lib/</targetPath>-->
-        <!--                <includes>-->
-        <!--                    <include>**/*.jar</include>-->
-        <!--                </includes>-->
-        <!--            </resource>-->
-        <!--            &lt;!&ndash;                如果不加上这个配置，src/main/resource目录下的配置文件就不会打到jar包下去了&ndash;&gt;-->
-        <!--            <resource>-->
-        <!--                <directory>src/main/resources</directory>-->
-        <!--                <targetPath>BOOT-INF/classes/</targetPath>-->
-        <!--            </resource>-->
-        <!--        </resources>-->
+<!--                <resources>-->
+<!--                    <resource>-->
+<!--                        &lt;!&ndash;                将lib目录下的jar包拷贝到BOOT-INF/lib/目录下&ndash;&gt;-->
+<!--                        <directory>lib</directory>-->
+<!--                        <targetPath>BOOT-INF/lib/</targetPath>-->
+<!--                        <includes>-->
+<!--                            <include>**/*.jar</include>-->
+<!--                        </includes>-->
+<!--                    </resource>-->
+<!--                    &lt;!&ndash;                如果不加上这个配置，src/main/resource目录下的配置文件就不会打到jar包下去了&ndash;&gt;-->
+<!--                    <resource>-->
+<!--                        <directory>src/main/resources</directory>-->
+<!--                        <targetPath>BOOT-INF/classes/</targetPath>-->
+<!--                    </resource>-->
+<!--                </resources>-->
 
     </build>
 </project>
