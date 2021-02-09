@@ -15,6 +15,9 @@ import javax.annotation.PostConstruct;
 @Component
 public class UserVerifyHandler {
 
+    public UserVerifyHandler() {
+    }
+
     /**
      * 验证用户身份
      *

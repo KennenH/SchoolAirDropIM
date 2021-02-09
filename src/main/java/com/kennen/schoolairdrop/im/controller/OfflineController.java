@@ -29,9 +29,9 @@ public class OfflineController {
     @PostMapping("/pull")
     public ResponseResult pullOfflineByID(@RequestHeader("Authorization") String token,
                                           @RequestParam("sender_id") String senderID,
-                                          @RequestParam("latest_fingerprint") String fingerprintLatest,
+                                          @RequestParam("start") String fingerprintLatest,
                                           @RequestParam(
-                                                  name = "ack_fingerprints",
+                                                  name = "ack",
                                                   required = false) List<String> fingerprintsToAck) {
         return offlineService.getOfflineSecondaryPull(token, senderID, fingerprintLatest, fingerprintsToAck);
     }
@@ -47,8 +47,7 @@ public class OfflineController {
      */
     @PostMapping("/num")
     public ResponseResult getOfflineNum(@RequestHeader("Authorization") String token) {
+        log.info("getofflinenum");
         return offlineService.getOfflineNum(token);
     }
-
-
 }

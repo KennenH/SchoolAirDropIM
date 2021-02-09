@@ -10,6 +10,8 @@ import com.kennen.schoolairdrop.im.service.IOfflineService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -44,7 +46,6 @@ public class OfflineImpl implements IOfflineService {
         // 去掉token前面的前缀
         token = token.substring(7);
         AccessToken accessToken = accessTokenDao.findOneByAccessToken(token);
-
         if (accessToken != null) {
             String receiverID = String.valueOf(accessToken.getUserID());
             int tableNum = receiverID.hashCode() % Constants.OFFLINE_TABLE_NUMS;
@@ -73,7 +74,7 @@ public class OfflineImpl implements IOfflineService {
             return ResponseResult.SUCCESS("离线消息获取成功").setData(dataBaseMessages);
         }
         // 移动端收取到的结果不论失败还是成功，bean的结构必须要一致，否则会导致 IllegalStateException
-        return ResponseResult.FAILED("用户不存在或验证信息已过期 " + token).setData(new ArrayList<>());
+        return ResponseResult.FAILED("用户不存在或验证信息已过期 " + token);
     }
 
     @Override
@@ -92,7 +93,7 @@ public class OfflineImpl implements IOfflineService {
             } else if (client > 0) {
                 offlineNumsDao.ackOfflineNumsClientB(receiverID, senderID);
             } else {
-                return ResponseResult.FAILED("不可发送消息给自己").setData(new ArrayList<>());
+                return ResponseResult.FAILED("不可发送消息给自己");
             }
 
             // 分页获取离线消息，按发送时间倒序排序
@@ -103,7 +104,7 @@ public class OfflineImpl implements IOfflineService {
 
             return ResponseResult.SUCCESS("离线消息获取成功").setData(dataBaseMessages);
         }
-        return ResponseResult.FAILED("用户不存在或验证信息已过期 " + token).setData(new ArrayList<>());
+        return ResponseResult.FAILED("用户不存在或验证信息已过期 " + token);
     }
 
     /**
@@ -164,7 +165,7 @@ public class OfflineImpl implements IOfflineService {
 
             return ResponseResult.SUCCESS("离线消息数量获取成功").setData(offlineNumsDetails);
         } else {
-            return ResponseResult.FAILED("用户不存在或者鉴权信息已过期").setData(new ArrayList<>());
+            return ResponseResult.FAILED("用户不存在或者鉴权信息已过期 token -- > " + token);
         }
     }
 

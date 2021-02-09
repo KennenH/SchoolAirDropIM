@@ -5,6 +5,7 @@ import com.kennen.schoolairdrop.im.component.OfflineMessageHandler;
 import com.kennen.schoolairdrop.im.component.UserVerifyHandler;
 import com.kennen.schoolairdrop.im.controller.OfflineController;
 import io.netty.channel.Channel;
+import lombok.extern.slf4j.Slf4j;
 import net.x52im.mobileimsdk.server.event.ServerEventListener;
 import net.x52im.mobileimsdk.server.network.MBObserver;
 import net.x52im.mobileimsdk.server.processor.OnlineProcessor;
@@ -18,6 +19,7 @@ import java.util.List;
 /**
  * 与客服端的所有数据交互事件在此ServerEventListener子类中实现即可。
  */
+@Slf4j
 public class ServerEventListenerImpl implements ServerEventListener {
 
     private static Logger logger = LoggerFactory.getLogger(ServerEventListenerImpl.class);

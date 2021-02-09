@@ -27,7 +27,10 @@ public class UserVerifyImpl implements IUserVerifyService {
 
     @Override
     public boolean verifyUser(String userID, String token) {
-        final AccessToken accessToken = accessTokenDao.findOneByAccessToken(token.substring(7));
+        final AccessToken accessToken = accessTokenDao.findOneByAccessToken(token);
+        if (accessToken == null) {
+            return false;
+        }
         return userID.equals(String.valueOf(accessToken.getUserID()));
     }
 }

@@ -116,7 +116,7 @@ public class GoodsImpl implements IGoodsService {
 
         createNewItem(title, cover, picSet, price, isQuotable, isSecondHand, description);
         log.info("物品添加成功");
-        return ResponseResult.SUCCESS("物品添加成功").setData(new ArrayList<>());
+        return ResponseResult.SUCCESS("物品添加成功");
     }
 
     private void createNewItem(String title, String cover, String picSet, String price, int isQuotable, int isSecondHand, String description) {
@@ -135,7 +135,7 @@ public class GoodsImpl implements IGoodsService {
     @Override
     public ResponseResult deleteGoods(int goodsID) {
         GoodsInfo goods = goodsDao.findByID(goodsID);
-        if (goods == null) return ResponseResult.FAILED("物品不存在").setData(new ArrayList<>());
+        if (goods == null) return ResponseResult.FAILED("物品不存在");
 
         String cover = goods.getGoods_img_cover();
         File file = new File("D:/" + cover);
@@ -156,9 +156,9 @@ public class GoodsImpl implements IGoodsService {
         try {
             goodsDao.delete(goods);
         } catch (Exception e) {
-            return ResponseResult.FAILED("删除时发生错误").setData(new ArrayList<>());
+            return ResponseResult.FAILED("删除时发生错误");
         }
         log.info("id为" + goodsID + "的物品已删除");
-        return ResponseResult.SUCCESS("删除成功").setData(new ArrayList<>());
+        return ResponseResult.SUCCESS("删除成功");
     }
 }

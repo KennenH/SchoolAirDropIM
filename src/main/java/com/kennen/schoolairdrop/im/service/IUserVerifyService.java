@@ -1,10 +1,5 @@
 package com.kennen.schoolairdrop.im.service;
 
-import com.kennen.schoolairdrop.im.pojo.AccessToken;
-import com.kennen.schoolairdrop.im.response.ResponseResult;
-
-import java.util.List;
-
 /**
  * @author kennen
  * @date 2020/12/13 19:37

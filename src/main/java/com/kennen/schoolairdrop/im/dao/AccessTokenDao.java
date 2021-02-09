@@ -5,8 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
-public interface AccessTokenDao extends JpaRepository<AccessToken, String>, JpaSpecificationExecutor<AccessToken> {
+public interface AccessTokenDao extends JpaRepository<AccessToken, Integer>, JpaSpecificationExecutor<AccessToken> {
 
-    @Query(value = "select * from user_access_tokens where access_token = ?", nativeQuery = true)
+    @Query(value = "select * from user_access_tokens where access_token = ?1",nativeQuery = true)
     AccessToken findOneByAccessToken(String token);
 }

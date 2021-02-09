@@ -1,5 +1,6 @@
 package com.kennen.schoolairdrop.im.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import net.x52im.mobileimsdk.server.ServerLauncher;
 import net.x52im.mobileimsdk.server.network.Gateway;
 import net.x52im.mobileimsdk.server.network.GatewayTCP;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+@Slf4j
 public class ServerLauncherImpl extends ServerLauncher {
 
     public ServerLauncherImpl() throws IOException {
@@ -21,16 +23,16 @@ public class ServerLauncherImpl extends ServerLauncher {
      */
     static {
         // 设置MobileIMSDK服务端的UDP网络监听端口
-        GatewayUDP.PORT = 7901;
+//        GatewayUDP.PORT = 7901;
         // 设置MobileIMSDK服务端的TCP网络监听端口
         GatewayTCP.PORT = 8901;
 
         // 设置MobileIMSDK服务端仅支持UDP协议
 //		ServerLauncher.supportedGateways = Gateway.SUPPORT_UDP;
         // 设置MobileIMSDK服务端仅支持TCP协议
-//		ServerLauncher.supportedGateways = Gateway.SUPPORT_TCP;
+		ServerLauncher.supportedGateways = Gateway.SUPPORT_TCP;
         // 设置MobileIMSDK服务端同时支持UDP、TCP两种协议
-        ServerLauncher.supportedGateways = Gateway.SUPPORT_UDP | Gateway.SUPPORT_TCP;
+//        ServerLauncher.supportedGateways = Gateway.SUPPORT_UDP | Gateway.SUPPORT_TCP;
 
         // 开/关Demog日志的输出
         QoS4SendDaemonS2C.getInstance().setDebugable(true);

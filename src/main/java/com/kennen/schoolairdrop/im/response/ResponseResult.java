@@ -1,9 +1,11 @@
 package com.kennen.schoolairdrop.im.response;
 
+import com.kennen.schoolairdrop.im.utils.Constants;
+
 public class ResponseResult {
     private boolean success;
     private String message;
-    private Object data;
+    private Object data = Constants.EMPTY;
 
     public ResponseResult(ResponseState state) {
         this.success = state.isSuccess();
