@@ -47,7 +47,6 @@ public class OfflineController {
      */
     @PostMapping("/num")
     public ResponseResult getOfflineNum(@RequestHeader("Authorization") String token) {
-        log.info("getofflinenum");
         return offlineService.getOfflineNum(token);
     }
 }

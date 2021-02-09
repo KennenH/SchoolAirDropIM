@@ -134,32 +134,37 @@ public class OfflineImpl implements IOfflineService {
             // 获取来自以上所有用户的最新10条消息，已经以senderID进行排序
             List<OfflineFromAll> offlineFromAlls = offlineFromAllDao.findFromAll(table, receiverID);
 
-            // 组装消息数量和来自各个用户的10条消息
-            // 这里由于以上两组数据都已经通过senderID进行排序，因此在这里可以以线性的时间复杂度完成组装操作
-            // 时间复杂度与来自所有用户的消息的数量成正比
+
+            // 组装消息数量和来自各个用户的10条消息，这里由于以上两组数据都已经通过senderID进行排序，因此在这里可以以线性的时间复杂度完成组装操作
+            // 时间复杂度与来自所有用户的消息的数量成正比，即仅取决于下面这个for循环
             int index = 0;
-            for (OfflineFromAll offline : offlineFromAlls) {
-                // 第index个发送者
-                OfflineNumsDetail offlineNumsDetail = offlineNumsDetails.get(index);
-
-                // 获取发送者用户信息
-                String senderId = offlineNumsDetail.getSender_id();
-                UserInfo senderInfo = userDao.getUserInfoByID(senderId);
-                offlineNumsDetail.setSender_info(new OfflineNumsDetail.SenderInfo(
-                        senderInfo.getUser_id(),
-                        senderInfo.getUser_name(),
-                        senderInfo.getUser_avatar()));
-
-                // 复制该离线消息到OfflineNumsDetail可以存放的子类中
+            // 第index个发送者
+            OfflineNumsDetail offlineNumsDetail = offlineNumsDetails.get(index);
+            // 获取发送者用户信息
+            String senderId = offlineNumsDetail.getSender_id();
+            for (OfflineFromAll offlineFromAll : offlineFromAlls) {
+                // 装配该离线消息到OfflineNumsDetail可以存放的子类中
                 OfflineNumsDetail.Offline bean = new OfflineNumsDetail.Offline();
-                BeanUtils.copyProperties(offline, bean);
+                BeanUtils.copyProperties(offlineFromAll, bean);
 
-                if (offline.getSender_id().equals(senderId)) {
+                if (offlineFromAll.getSender_id().equals(senderId)) {
                     // 若当前的消息sender_id与当前第index发送者的id一致，则将其放入该发送者的offline中
                     offlineNumsDetail.getOffline().add(bean);
                 } else {
                     // 否则如果当前消息的sender_id与当前发送者的id不一致，则直接放入下一个发送者offline中
                     offlineNumsDetails.get(++index).getOffline().add(bean);
+                    // 将用户信息切换至下一个
+                    offlineNumsDetail = offlineNumsDetails.get(index);
+                    senderId = offlineNumsDetail.getSender_id();
+                }
+
+                // 装配离线消息发送者的用户信息
+                if (offlineNumsDetail.getSender_info() == null) {
+                    UserInfo senderInfo = userDao.getUserInfoByID(senderId);
+                    offlineNumsDetail.setSender_info(new OfflineNumsDetail.SenderInfo(
+                            senderInfo.getUser_id(),
+                            senderInfo.getUser_name(),
+                            senderInfo.getUser_avatar()));
                 }
             }
 
@@ -219,3 +224,46 @@ public class OfflineImpl implements IOfflineService {
                 protocalWithTime.getDataContent());
     }
 }
+
+/**
+ * {
+ * "success": true,
+ * "message": "离线消息数量获取成功",
+ * "data": [
+ * {
+ * "sender_id": "7",
+ * "receiver_id": "9",
+ * "offline_num": 1,
+ * "finger_print": "B2A1C36D-BAA4-455E-AB68-38C03873DF72",
+ * "sender_info": {
+ * "sender_id": 7,
+ * "sender_name": "user_7",
+ * "sender_avatar": "/uploads/img/user/default/default.jpg"
+ * },
+ * "offline": [
+ * {
+ * "finger_print": "B2A1C36D-BAA4-455E-AB68-38C03873DF72",
+ * "message_type": 0,
+ * "message": "这是一条离线消息",
+ * "send_time": "2021-02-09T08:52:50.000+0000"
+ * }
+ * ]
+ * },
+ * {
+ * "sender_id": "8",
+ * "receiver_id": "9",
+ * "offline_num": 1,
+ * "finger_print": "06e4561d-0b88-49cb-ac10-287ca51eb461",
+ * "sender_info": null,
+ * "offline": [
+ * {
+ * "finger_print": "06e4561d-0b88-49cb-ac10-287ca51eb461",
+ * "message_type": 0,
+ * "message": "哈哈啊哈哈测试测试",
+ * "send_time": "2021-02-09T13:21:32.000+0000"
+ * }
+ * ]
+ * }
+ * ]
+ * }
+ */
