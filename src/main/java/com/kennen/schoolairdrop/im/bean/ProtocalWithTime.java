@@ -15,21 +15,11 @@ public class ProtocalWithTime implements Serializable {
 
     public ProtocalWithTime(Protocal protocal) {
         BeanUtils.copyProperties(protocal, this);
-        this.sendTime = new Date();
+        this.sendTime = new Date().getTime();
         received = 0;
     }
 
-    public ProtocalWithTime(Offline offline) {
-        sendTime = offline.getSendTime();
-        typeu = offline.getMessageType();
-        dataContent = offline.getMessage();
-        from = offline.getSenderID();
-        to = offline.getReceiverID();
-        fp = offline.getFingerPrint();
-        received = offline.getReceived();
-    }
-
-    private Date sendTime;
+    private long sendTime;
 
     private int typeu;
 
@@ -95,11 +85,11 @@ public class ProtocalWithTime implements Serializable {
         this.fp = fp;
     }
 
-    public Date getSendTime() {
+    public long getSendTime() {
         return sendTime;
     }
 
-    public void setSendTime(Date sendTime) {
+    public void setSendTime(long sendTime) {
         this.sendTime = sendTime;
     }
 }

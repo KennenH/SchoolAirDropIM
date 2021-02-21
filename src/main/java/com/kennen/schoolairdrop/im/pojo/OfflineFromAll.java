@@ -29,7 +29,7 @@ public class OfflineFromAll {
     private String message;
 
     @Column(name = "send_time")
-    private Date send_time;
+    private long send_time;
 
 
     public String getSender_id() {
@@ -77,11 +77,11 @@ public class OfflineFromAll {
     }
 
 
-    public Date getSend_time() {
+    public long getSend_time() {
         return send_time;
     }
 
-    public void setSend_time(Date send_time) {
+    public void setSend_time(long send_time) {
         this.send_time = send_time;
     }
 

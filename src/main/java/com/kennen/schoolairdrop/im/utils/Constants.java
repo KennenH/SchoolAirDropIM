@@ -41,9 +41,4 @@ public class Constants {
      * 一页数据量
      */
     public static final int ONE_PAGE_NUM = 10;
-
-    /**
-     * 所有错误返回都用这个，不许赋值
-     */
-    public static final List EMPTY = new ArrayList<>(0);
 }

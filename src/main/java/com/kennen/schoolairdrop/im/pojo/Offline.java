@@ -37,7 +37,7 @@ public class Offline {
     private int messageType;
 
     @Column(name = "send_time")
-    private Date sendTime;
+    private long sendTime;
 
     @Column(name = "received")
     private int received;
@@ -90,11 +90,11 @@ public class Offline {
         this.messageType = message_type;
     }
 
-    public Date getSendTime() {
+    public long getSendTime() {
         return sendTime;
     }
 
-    public void setSendTime(Date send_time) {
+    public void setSendTime(long send_time) {
         this.sendTime = send_time;
     }
 

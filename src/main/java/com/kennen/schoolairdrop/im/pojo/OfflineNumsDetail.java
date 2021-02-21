@@ -147,7 +147,7 @@ public class OfflineNumsDetail {
 
         private String message;
 
-        private Date send_time;
+        private long send_time;
 
         public String getFinger_print() {
             return finger_print;
@@ -173,11 +173,11 @@ public class OfflineNumsDetail {
             this.message = message;
         }
 
-        public Date getSend_time() {
+        public long getSend_time() {
             return send_time;
         }
 
-        public void setSend_time(Date send_time) {
+        public void setSend_time(long send_time) {
             this.send_time = send_time;
         }
     }

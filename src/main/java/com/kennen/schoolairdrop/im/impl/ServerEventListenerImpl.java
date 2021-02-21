@@ -98,17 +98,17 @@ public class ServerEventListenerImpl implements ServerEventListener {
     @Override
     public boolean onTransferMessage4C2S(Protocal p, Channel session) {
         // 接收者uid
-        String userId = p.getTo();
-        // 发送者uid
-        String from_user_id = p.getFrom();
-        // 消息或指令内容
-        String dataContent = p.getDataContent();
-        // 消息或指令指纹码（即唯一ID）
-        String fingerPrint = p.getFp();
-        // 【重要】用户定义的消息或指令协议类型（开发者可据此类型来区分具体的消息或指令）
-        int typeu = p.getTypeu();
-
-        logger.debug("【DEBUG_回调通知】[typeu=" + typeu + "]收到了客户端" + from_user_id + "发给服务端的消息：str=" + dataContent);
+//        String userId = p.getTo();
+//        // 发送者uid
+//        String from_user_id = p.getFrom();
+//        // 消息或指令内容
+//        String dataContent = p.getDataContent();
+//        // 消息或指令指纹码（即唯一ID）
+//        String fingerPrint = p.getFp();
+//        // 【重要】用户定义的消息或指令协议类型（开发者可据此类型来区分具体的消息或指令）
+//        int typeu = p.getTypeu();
+//
+//        logger.debug("【DEBUG_回调通知】[typeu=" + typeu + "]收到了客户端" + from_user_id + "发给服务端的消息：str=" + dataContent);
         return true;
     }
 
@@ -130,17 +130,17 @@ public class ServerEventListenerImpl implements ServerEventListener {
     @Override
     public void onTransferMessage4C2C(Protocal p) {
         // 接收者uid
-        String userId = p.getTo();
-        // 发送者uid
-        String from_user_id = p.getFrom();
-        // 消息或指令内容
-        String dataContent = p.getDataContent();
-        // 消息或指令指纹码（即唯一ID）
-        String fingerPrint = p.getFp();
-        // 【重要】用户定义的消息或指令协议类型（开发者可据此类型来区分具体的消息或指令）
-        int typeu = p.getTypeu();
+//        String userId = p.getTo();
+//        // 发送者uid
+//        String from_user_id = p.getFrom();
+//        // 消息或指令内容
+//        String dataContent = p.getDataContent();
+//        // 消息或指令指纹码（即唯一ID）
+//        String fingerPrint = p.getFp();
+//        // 【重要】用户定义的消息或指令协议类型（开发者可据此类型来区分具体的消息或指令）
+//        int typeu = p.getTypeu();
 
-        logger.debug("【DEBUG_回调通知】[typeu=" + typeu + "]收到了客户端" + from_user_id + "发给客户端" + userId + "的消息：str=" + dataContent);
+//        logger.debug("【DEBUG_回调通知】[typeu=" + typeu + "]收到了客户端" + from_user_id + "发给客户端" + userId + "的消息：str=" + dataContent);
     }
 
     /**

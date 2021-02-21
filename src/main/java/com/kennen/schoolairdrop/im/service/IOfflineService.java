@@ -10,29 +10,28 @@ public interface IOfflineService {
 
     /**
      * 二次拉取
-     * 拉取临界消息后的10条消息并ack上次拉取的消息集合
+     * 拉取时间后的10条消息并ack上次拉取的消息集合
      * <p>
      * 上层应用在查看获取到的最新10条记录后若继续查看则需要调用该方法
      *
-     * @param token             接收者token，即调用该方法的用户
-     * @param senderID          消息发送者
-     * @param fingerprintLatest 想要拉取消息的临界消息指纹
-     * @param fingerprintsToAck 将要ack的消息集合
+     * @param token     接收者token，即调用该方法的用户
+     * @param senderID  消息发送者
+     * @param startTime 想要拉取消息的临界消息时间，即从这个时间前去找
      */
-    ResponseResult getOfflineSecondaryPull(String token, String senderID, String fingerprintLatest, List<String> fingerprintsToAck);
+    ResponseResult getOfflineBefore(String token, String senderID, long startTime);
 
-    /**
-     * 首次拉取
-     * 拉取最新10条消息记录并ack未读消息数
-     * <p>
-     * 上层应用应在进入与某人的聊天界面时再拉取针对该用户发来的消息内容
-     * 服务器实现为先将对应的发送者接收者离线消息从redis中拉出来，放入
-     * 数据库中，再将数据库中所有对应发送者接收者未拉取的消息发送至接收者
-     *
-     * @param token    消息接收者token，即本方法调用者
-     * @param senderID 消息发送者
-     */
-    ResponseResult getOfflinePrimaryPull(String token, String senderID);
+//    /**
+//     * 首次拉取
+//     * 拉取最新10条消息记录并ack未读消息数
+//     * <p>
+//     * 上层应用应在进入与某人的聊天界面时再拉取针对该用户发来的消息内容
+//     * 服务器实现为先将对应的发送者接收者离线消息从redis中拉出来，放入
+//     * 数据库中，再将数据库中所有对应发送者接收者未拉取的消息发送至接收者
+//     *
+//     * @param token    消息接收者token，即本方法调用者
+//     * @param senderID 消息发送者
+//     */
+//    ResponseResult getOfflinePrimaryPull(String token, String senderID);
 
     /**
      * 获取来自所有独特的用户的消息个数和每个用户的最新消息与时间戳

@@ -1,12 +1,55 @@
-[2021/02/09-17:30:53] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 22928 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
-[2021/02/09-17:30:53] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
-[2021/02/09-17:30:57] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 4.656 seconds (JVM running for 5.456)
-[2021/02/09-17:31:06] [http-nio-2020-exec-5] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : id -- > 14 name -- > 冲冲Developer
-[2021/02/09-17:31:06] [http-nio-2020-exec-5] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : id -- > 14 name -- > 冲冲Developer
-[2021/02/09-17:31:06] [http-nio-2020-exec-5] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : id -- > 14 name -- > 冲冲Developer
-[2021/02/09-17:31:06] [http-nio-2020-exec-5] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : id -- > 14 name -- > 冲冲Developer
-[2021/02/09-17:31:06] [http-nio-2020-exec-5] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : id -- > 14 name -- > 冲冲Developer
-[2021/02/09-17:31:06] [http-nio-2020-exec-5] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : id -- > 14 name -- > 冲冲Developer
-[2021/02/09-17:31:06] [http-nio-2020-exec-5] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : id -- > 14 name -- > 冲冲Developer
-[2021/02/09-17:31:06] [http-nio-2020-exec-5] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : id -- > 14 name -- > 冲冲Developer
-[2021/02/09-17:31:06] [http-nio-2020-exec-5] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : id -- > 17 name -- > 大帅哥
+[2021/02/21-22:39:09] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 11156 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/21-22:39:09] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/21-22:39:14] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 4.775 seconds (JVM running for 5.583)
+[2021/02/21-22:40:15] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 测试测试测试
+[2021/02/21-22:40:39] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 1
+[2021/02/21-22:40:42] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 2
+[2021/02/21-22:40:43] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 3
+[2021/02/21-22:40:44] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 4
+[2021/02/21-22:40:45] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 5
+[2021/02/21-22:40:46] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 6
+[2021/02/21-22:40:47] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 6
+[2021/02/21-22:40:50] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 7
+[2021/02/21-22:40:52] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 8
+[2021/02/21-22:40:53] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 9
+[2021/02/21-22:40:54] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 0
+[2021/02/21-22:40:57] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 11
+[2021/02/21-22:41:00] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 12
+[2021/02/21-22:41:03] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 13
+[2021/02/21-22:41:04] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 14
+[2021/02/21-22:41:06] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 15
+[2021/02/21-22:41:07] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 16
+[2021/02/21-22:41:08] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 17
+[2021/02/21-22:41:10] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 18
+[2021/02/21-22:41:12] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 19
+[2021/02/21-22:41:16] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 20
+[2021/02/21-22:41:19] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 21
+[2021/02/21-22:41:20] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 22
+[2021/02/21-22:41:21] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 23
+[2021/02/21-22:41:22] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 24
+[2021/02/21-22:41:23] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 25
+[2021/02/21-22:58:29] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 20160 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/21-22:58:29] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/21-22:58:33] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.922 seconds (JVM running for 4.55)
+[2021/02/21-23:04:27] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 19248 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/21-23:04:27] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/21-23:04:30] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.878 seconds (JVM running for 4.492)
+[2021/02/21-23:20:33] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 15664 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/21-23:20:33] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/21-23:20:37] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.834 seconds (JVM running for 4.469)
+[2021/02/21-23:27:00] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 13820 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/21-23:27:00] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/21-23:27:03] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.713 seconds (JVM running for 4.332)
+[2021/02/21-23:29:45] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 来自大帅哥的测试消息
+[2021/02/21-23:29:58] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 嚯嚯嚯霍呵呵呵呵哈哈哈哈嘿嘿嘿嘿
+[2021/02/21-23:30:04] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 离线消息已存储 最后一题奥
+[2021/02/21-23:36:25] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 3916 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/21-23:36:25] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/21-23:36:29] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.819 seconds (JVM running for 4.463)
+[2021/02/21-23:40:26] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 11272 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/21-23:40:26] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/21-23:40:29] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.815 seconds (JVM running for 4.433)
+[2021/02/21-23:40:43] [http-nio-2020-exec-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : start time -- > 1613918452244
+[2021/02/21-23:45:58] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 8644 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/21-23:45:58] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/21-23:46:02] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.895 seconds (JVM running for 4.527)

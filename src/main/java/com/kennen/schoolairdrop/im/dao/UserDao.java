@@ -13,16 +13,6 @@ import org.springframework.data.jpa.repository.Query;
 public interface UserDao extends JpaRepository<UserInfo, Integer>, JpaSpecificationExecutor<UserInfo> {
 
     @Query(value = "select * from user_info where user_id = ?", nativeQuery = true)
-    UserInfo getUserInfoByID(int userID);
-
-    @Query(value = "select * from user_info where user_id = ?", nativeQuery = true)
     UserInfo getUserInfoByID(String userID);
 
-    @Modifying
-    @Query(value = "update user_info set user_name = ?1 where user_id = ?2", nativeQuery = true)
-    void updateUserName(String name, int userID);
-
-    @Modifying
-    @Query(value = "update user_info set user_avatar = ?1 where user_id = ?2", nativeQuery = true)
-    void updateAvatar(String photo, int uid);
 }

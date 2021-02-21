@@ -1,15 +1,13 @@
 package com.kennen.schoolairdrop.im.response;
 
-import com.kennen.schoolairdrop.im.utils.Constants;
-
 public class ResponseResult {
-    private boolean success;
-    private String message;
-    private Object data = Constants.EMPTY;
+    private int code;
+    private String msg;
+    private Object data = null;
 
     public ResponseResult(ResponseState state) {
-        this.success = state.isSuccess();
-        this.message = state.getMessage();
+        this.code = state.getCode();
+        this.msg = state.getMessage();
     }
 
     public static ResponseResult SUCCESS() {
@@ -18,7 +16,7 @@ public class ResponseResult {
 
     public static ResponseResult SUCCESS(String message) {
         ResponseResult result = new ResponseResult(ResponseState.SUCCESS);
-        result.setMessage(message);
+        result.setMsg(message);
         return result;
     }
 
@@ -28,26 +26,24 @@ public class ResponseResult {
 
     public static ResponseResult FAILED(String message) {
         ResponseResult result = new ResponseResult(ResponseState.FAILED);
-        result.setMessage(message);
+        result.setMsg(message);
         return result;
     }
 
-    public boolean isSuccess() {
-        return success;
+    public int getCode() {
+        return code;
     }
 
-    public ResponseResult setSuccess(boolean success) {
-        this.success = success;
-        return this;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMsg() {
+        return msg;
     }
 
-    public ResponseResult setMessage(String message) {
-        this.message = message;
-        return this;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public Object getData() {

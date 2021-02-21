@@ -1,26 +1,8 @@
 package com.kennen.schoolairdrop.im.controller;
 
-import com.kennen.schoolairdrop.im.bean.UpdateAvatar;
-import com.kennen.schoolairdrop.im.bean.UserBean;
-import com.kennen.schoolairdrop.im.dao.UserDao;
-import com.kennen.schoolairdrop.im.pojo.UserInfo;
-import com.kennen.schoolairdrop.im.response.ResponseResult;
-import com.kennen.schoolairdrop.im.service.IUserService;
-import com.kennen.schoolairdrop.im.utils.Constants;
-import com.kennen.schoolairdrop.im.utils.IDGenerator;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.transaction.Transactional;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * @author kennen

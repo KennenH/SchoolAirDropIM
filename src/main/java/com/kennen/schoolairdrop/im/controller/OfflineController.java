@@ -19,21 +19,17 @@ public class OfflineController {
     /**
      * 获取用户在离线时接收到的来自特定用户的消息
      *
-     * @param token             登录者用户token
-     * @param senderID          消息发送者userID
-     * @param fingerprintLatest 临界消息
-     *                          若有，则代表需要拉取该消息后的消息
-     *                          若无，则代表需要拉取最新的消息
-     * @param fingerprintsToAck 需要ack的消息数组
+     * @param token     登录者用户token
+     * @param senderID  消息发送者userID
+     * @param startTime 临界消息时间
+     *                  若有，则代表需要拉取该消息之前发的消息
+     *                  若无，则代表需要拉取最新的消息
      */
     @PostMapping("/pull")
     public ResponseResult pullOfflineByID(@RequestHeader("Authorization") String token,
                                           @RequestParam("sender_id") String senderID,
-                                          @RequestParam("start") String fingerprintLatest,
-                                          @RequestParam(
-                                                  name = "ack",
-                                                  required = false) List<String> fingerprintsToAck) {
-        return offlineService.getOfflineSecondaryPull(token, senderID, fingerprintLatest, fingerprintsToAck);
+                                          @RequestParam("start") long startTime) {
+        return offlineService.getOfflineBefore(token, senderID, startTime);
     }
 
     /**

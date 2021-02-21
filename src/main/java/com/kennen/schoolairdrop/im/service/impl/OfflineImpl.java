@@ -4,18 +4,14 @@ import com.kennen.schoolairdrop.im.bean.ProtocalWithTime;
 import com.kennen.schoolairdrop.im.dao.*;
 import com.kennen.schoolairdrop.im.pojo.*;
 import com.kennen.schoolairdrop.im.utils.Constants;
-import com.kennen.schoolairdrop.im.utils.MessageUtil;
 import com.kennen.schoolairdrop.im.response.ResponseResult;
 import com.kennen.schoolairdrop.im.service.IOfflineService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -42,34 +38,24 @@ public class OfflineImpl implements IOfflineService {
     private OfflineFromAllDao offlineFromAllDao;
 
     @Override
-    public ResponseResult getOfflineSecondaryPull(String token, String senderID, String fingerprintLatest, List<String> fingerprintsToAck) {
-        // 去掉token前面的前缀
+    public ResponseResult getOfflineBefore(String token, String senderID, long startTime) {
+        // 去掉token前面的 Bearer 前缀
         token = token.substring(7);
         AccessToken accessToken = accessTokenDao.findOneByAccessToken(token);
+
         if (accessToken != null) {
             String receiverID = String.valueOf(accessToken.getUserID());
             int tableNum = receiverID.hashCode() % Constants.OFFLINE_TABLE_NUMS;
 
-            // 通过第一条和最后一条聊天记录的指纹码来找到开始和结束的临界id
-            Offline latest = offlineDao.findOneByFingerPrint(tableNum, fingerprintLatest);
+            // 先ack临界时间包括自己之后的所有消息
+            offlineMessageAck(senderID, receiverID, startTime);
 
-            // 临界消息的id
-            int offlineLatest = 0;
-            if (latest != null) {
-                offlineLatest = latest.getOfflineID();
-            }
-
-            // 有需要ack的消息列表
-            if (fingerprintsToAck != null && fingerprintsToAck.size() > 0) {
-                offlineMessageAck(receiverID, fingerprintsToAck);
-            }
-
-            // 分页获取离线消息，按发送时间倒序排序
-            List<Offline> dataBaseMessages = offlineDao.findBeforeFrom(
+            // 获取指定时间之前的离线消息，按发送时间倒序排序
+            List<Offline> dataBaseMessages = offlineDao.findBefore(
                     tableNum,
                     receiverID,
                     senderID,
-                    offlineLatest);
+                    startTime);
 
             return ResponseResult.SUCCESS("离线消息获取成功").setData(dataBaseMessages);
         }
@@ -77,53 +63,32 @@ public class OfflineImpl implements IOfflineService {
         return ResponseResult.FAILED("用户不存在或验证信息已过期 " + token);
     }
 
-    @Override
-    public ResponseResult getOfflinePrimaryPull(String token, String senderID) {
-        token = token.substring(7);
-        AccessToken accessToken = accessTokenDao.findOneByAccessToken(token);
-
-        if (accessToken != null) {
-            String receiverID = String.valueOf(accessToken.getUserID());
-            int tableNum = receiverID.hashCode() % Constants.OFFLINE_TABLE_NUMS;
-
-            int client = receiverID.compareTo(senderID);
-            // 未读消息ack，receiverID大则调用clientA，否则调用clientB
-            if (client < 0) {
-                offlineNumsDao.ackOfflineNumsClientA(receiverID, senderID);
-            } else if (client > 0) {
-                offlineNumsDao.ackOfflineNumsClientB(receiverID, senderID);
-            } else {
-                return ResponseResult.FAILED("不可发送消息给自己");
-            }
-
-            // 分页获取离线消息，按发送时间倒序排序
-            List<Offline> dataBaseMessages = offlineDao.findLatest(
-                    tableNum,
-                    receiverID,
-                    senderID);
-
-            return ResponseResult.SUCCESS("离线消息获取成功").setData(dataBaseMessages);
-        }
-        return ResponseResult.FAILED("用户不存在或验证信息已过期 " + token);
-    }
-
     /**
-     * 消息本体ack
+     * ack 消息
      */
-    private void offlineMessageAck(String receiverID, List<String> fingerprints) {
-        // 将需要ack的消息数组转换为以单引号引用，逗号分隔的指纹字符串
-        String fingerPrintsSql = MessageUtil.listToStringSplitWithDot(fingerprints);
-
-        // ack消息本体
+    private void offlineMessageAck(String senderID, String receiverID, long ack) {
+        // ack大于临界时间的消息
         offlineDao.offlineMessagesAck(
                 receiverID.hashCode() % Constants.OFFLINE_TABLE_NUMS,
-                fingerPrintsSql);
+                receiverID,
+                senderID,
+                ack);
+
+        int sender = Integer.parseInt(senderID);
+        int receiver = Integer.parseInt(receiverID);
+        // 此处是给receiver进行离线消息数量的ack，因此receiver小就调用ClientA，大就调用ClientB
+        if (receiver < sender) {
+            offlineNumsDao.ackReceiverOfflineNumsAsClientA(receiverID, senderID);
+        } else {
+            offlineNumsDao.ackReceiverOfflineNumsAsClientB(receiverID, senderID);
+        }
     }
 
     @Override
     public ResponseResult getOfflineNum(String token) {
         token = token.substring(7);
         AccessToken accessToken = accessTokenDao.findOneByAccessToken(token);
+
         if (accessToken != null) {
             String receiverID = String.valueOf(accessToken.getUserID());
             int table = receiverID.hashCode() % Constants.OFFLINE_TABLE_NUMS;
@@ -131,43 +96,43 @@ public class OfflineImpl implements IOfflineService {
             // 获取来自所有用户发送给receiver的消息数量，已经以senderID进行排序
             List<OfflineNumsDetail> offlineNumsDetails = offlineNumsDetailDao.findAllByID(table, receiverID);
 
-            // 获取来自以上所有用户的最新10条消息，已经以senderID进行排序
-            List<OfflineFromAll> offlineFromAlls = offlineFromAllDao.findFromAll(table, receiverID);
+            if (offlineNumsDetails.size() > 0) {
+                // 获取来自以上所有用户的最新10条消息，已经以senderID进行排序
+                List<OfflineFromAll> offlineFromAlls = offlineFromAllDao.findFromAll(table, receiverID);
 
+                // 组装消息数量和来自各个用户的10条消息，这里由于以上两组数据都已经通过senderID进行排序，因此在这里可以以线性的时间复杂度完成组装操作
+                // 时间复杂度与来自所有用户的消息的数量成正比，即仅取决于下面这个for循环
+                int index = 0;
+                // 第index个发送者
+                OfflineNumsDetail offlineNumsDetail = offlineNumsDetails.get(index);
+                // 获取发送者用户信息
+                String senderId = offlineNumsDetail.getSender_id();
+                for (OfflineFromAll offlineFromAll : offlineFromAlls) {
+                    // 装配该离线消息到OfflineNumsDetail可以存放的子类中
+                    OfflineNumsDetail.Offline bean = new OfflineNumsDetail.Offline();
+                    BeanUtils.copyProperties(offlineFromAll, bean);
 
-            // 组装消息数量和来自各个用户的10条消息，这里由于以上两组数据都已经通过senderID进行排序，因此在这里可以以线性的时间复杂度完成组装操作
-            // 时间复杂度与来自所有用户的消息的数量成正比，即仅取决于下面这个for循环
-            int index = 0;
-            // 第index个发送者
-            OfflineNumsDetail offlineNumsDetail = offlineNumsDetails.get(index);
-            // 获取发送者用户信息
-            String senderId = offlineNumsDetail.getSender_id();
-            for (OfflineFromAll offlineFromAll : offlineFromAlls) {
-                // 装配该离线消息到OfflineNumsDetail可以存放的子类中
-                OfflineNumsDetail.Offline bean = new OfflineNumsDetail.Offline();
-                BeanUtils.copyProperties(offlineFromAll, bean);
+                    if (offlineFromAll.getSender_id().equals(senderId)) {
+                        // 若当前的消息sender_id与当前第index发送者的id一致，则将其放入该发送者的offline中
+                        offlineNumsDetail.getOffline().add(bean);
+                    } else {
+                        // 否则如果当前消息的sender_id与当前发送者的id不一致，则直接放入下一个发送者offline中
+                        offlineNumsDetails.get(++index).getOffline().add(bean);
+                        // 将用户信息切换至下一个
+                        offlineNumsDetail = offlineNumsDetails.get(index);
+                        senderId = offlineNumsDetail.getSender_id();
+                    }
 
-                if (offlineFromAll.getSender_id().equals(senderId)) {
-                    // 若当前的消息sender_id与当前第index发送者的id一致，则将其放入该发送者的offline中
-                    offlineNumsDetail.getOffline().add(bean);
-                } else {
-                    // 否则如果当前消息的sender_id与当前发送者的id不一致，则直接放入下一个发送者offline中
-                    offlineNumsDetails.get(++index).getOffline().add(bean);
-                    // 将用户信息切换至下一个
-                    offlineNumsDetail = offlineNumsDetails.get(index);
-                    senderId = offlineNumsDetail.getSender_id();
-                }
-
-                // 装配离线消息发送者的用户信息
-                if (offlineNumsDetail.getSender_info() == null) {
-                    UserInfo senderInfo = userDao.getUserInfoByID(senderId);
-                    offlineNumsDetail.setSender_info(new OfflineNumsDetail.SenderInfo(
-                            senderInfo.getUser_id(),
-                            senderInfo.getUser_name(),
-                            senderInfo.getUser_avatar()));
+                    // 装配离线消息发送者的用户信息
+                    if (offlineNumsDetail.getSender_info() == null) {
+                        UserInfo senderInfo = userDao.getUserInfoByID(senderId);
+                        offlineNumsDetail.setSender_info(new OfflineNumsDetail.SenderInfo(
+                                senderInfo.getUser_id(),
+                                senderInfo.getUser_name(),
+                                senderInfo.getUser_avatar()));
+                    }
                 }
             }
-
             return ResponseResult.SUCCESS("离线消息数量获取成功").setData(offlineNumsDetails);
         } else {
             return ResponseResult.FAILED("用户不存在或者鉴权信息已过期 token -- > " + token);
@@ -224,46 +189,3 @@ public class OfflineImpl implements IOfflineService {
                 protocalWithTime.getDataContent());
     }
 }
-
-/**
- * {
- * "success": true,
- * "message": "离线消息数量获取成功",
- * "data": [
- * {
- * "sender_id": "7",
- * "receiver_id": "9",
- * "offline_num": 1,
- * "finger_print": "B2A1C36D-BAA4-455E-AB68-38C03873DF72",
- * "sender_info": {
- * "sender_id": 7,
- * "sender_name": "user_7",
- * "sender_avatar": "/uploads/img/user/default/default.jpg"
- * },
- * "offline": [
- * {
- * "finger_print": "B2A1C36D-BAA4-455E-AB68-38C03873DF72",
- * "message_type": 0,
- * "message": "这是一条离线消息",
- * "send_time": "2021-02-09T08:52:50.000+0000"
- * }
- * ]
- * },
- * {
- * "sender_id": "8",
- * "receiver_id": "9",
- * "offline_num": 1,
- * "finger_print": "06e4561d-0b88-49cb-ac10-287ca51eb461",
- * "sender_info": null,
- * "offline": [
- * {
- * "finger_print": "06e4561d-0b88-49cb-ac10-287ca51eb461",
- * "message_type": 0,
- * "message": "哈哈啊哈哈测试测试",
- * "send_time": "2021-02-09T13:21:32.000+0000"
- * }
- * ]
- * }
- * ]
- * }
- */
