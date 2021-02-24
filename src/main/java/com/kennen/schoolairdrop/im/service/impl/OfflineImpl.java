@@ -3,6 +3,7 @@ package com.kennen.schoolairdrop.im.service.impl;
 import com.kennen.schoolairdrop.im.bean.ProtocalWithTime;
 import com.kennen.schoolairdrop.im.dao.*;
 import com.kennen.schoolairdrop.im.pojo.*;
+import com.kennen.schoolairdrop.im.service.RestTemplateService;
 import com.kennen.schoolairdrop.im.utils.Constants;
 import com.kennen.schoolairdrop.im.response.ResponseResult;
 import com.kennen.schoolairdrop.im.service.IOfflineService;
@@ -36,6 +37,9 @@ public class OfflineImpl implements IOfflineService {
 
     @Autowired
     private OfflineFromAllDao offlineFromAllDao;
+
+    @Autowired
+    private RestTemplateService restTemplateService;
 
     @Override
     public ResponseResult getOfflineBefore(String token, String senderID, long startTime) {
@@ -165,15 +169,16 @@ public class OfflineImpl implements IOfflineService {
             try {
                 saveOffline(table, protocalWithTime);
             } catch (Exception e) {
-                log.info("离线消息存储失败");
+                // 未知错误，离线消息存储失败
                 return false;
             }
 
-            log.info("离线消息已存储 " + protocalWithTime.getDataContent());
+            // 离线消息存储成功，发送push给接收者
+            restTemplateService.pushNotification(receiverID, protocalWithTime.getDataContent());
             return true;
         }
 
-        log.info("发送方验证信息非法，消息未被存储");
+        // 发送放验证信息非法，消息未被存储
         return false;
     }
 
