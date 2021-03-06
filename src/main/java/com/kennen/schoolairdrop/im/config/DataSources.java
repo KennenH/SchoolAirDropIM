@@ -1,4 +1,4 @@
-package com.kennen.schoolairdrop.im.config;
+//package com.kennen.schoolairdrop.im.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -14,8 +14,8 @@ import javax.sql.DataSource;
  * <p>
  * 此处配置有问题可能会导致有关于jdbc无法连接的问题
  */
-@Configuration
-public class DataSources {
+//@Configuration
+//public class DataSources {
 //    @Bean
 //    @Primary
 //    @ConfigurationProperties(prefix = "spring.datasource")
@@ -28,4 +28,4 @@ public class DataSources {
 //    public DataSource secondaryDataSource() {
 //        return DataSourceBuilder.create().build();
 //    }
-}
+//}

@@ -8,15 +8,13 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 public interface OfflineDao extends JpaRepository<Offline, String>, JpaSpecificationExecutor<Offline> {
 
     /**
      * 二次拉取
-     * 默认一页为10条消息
+     * <p>
      * 以时间为依据找小于（早于，旧于且不包含本身）临界时间的消息
      */
     @Query(value = "select * from offline?1 where received = 0 and receiver_id = ?2 and sender_id = ?3" +
@@ -52,4 +50,11 @@ public interface OfflineDao extends JpaRepository<Offline, String>, JpaSpecifica
                      int received,
                      long sendTime,
                      String message);
+
+    /**
+     * 删除数据库中已经被ack的消息
+     */
+    @Modifying
+    @Query(value = "delete from offline?1 where received = 1", nativeQuery = true)
+    void clearReceivedOffline(int table);
 }

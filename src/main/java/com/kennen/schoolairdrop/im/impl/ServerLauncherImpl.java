@@ -35,8 +35,8 @@ public class ServerLauncherImpl extends ServerLauncher {
 //        ServerLauncher.supportedGateways = Gateway.SUPPORT_UDP | Gateway.SUPPORT_TCP;
 
         // 开/关Demog日志的输出
-        QoS4SendDaemonS2C.getInstance().setDebugable(true);
-        QoS4ReciveDaemonC2S.getInstance().setDebugable(true);
+        QoS4SendDaemonS2C.getInstance().setDebugable(false);
+        QoS4ReciveDaemonC2S.getInstance().setDebugable(false);
 
         // 与客户端协商一致的心跳频率模式设置
 //		ServerToolKits.setSenseModeUDP(SenseModeUDP.MODE_15S);
@@ -44,7 +44,7 @@ public class ServerLauncherImpl extends ServerLauncher {
 
         // 关闭与Web端的消息互通桥接器（其实SDK中默认就是false）
         ServerLauncher.bridgeEnabled = false;
-        // TODO 跨服桥接器MQ的URI（本参数只在ServerLauncher.bridgeEnabled为true时有意义）
+//         TODO 跨服桥接器MQ的URI（本参数只在ServerLauncher.bridgeEnabled为true时有意义）
 //		BridgeProcessor.IMMQ_URI = "amqp://js:19844713@192.168.0.190";
 
         // 设置最大TCP帧内容长度（不设置则默认最大是 6 * 1024字节）

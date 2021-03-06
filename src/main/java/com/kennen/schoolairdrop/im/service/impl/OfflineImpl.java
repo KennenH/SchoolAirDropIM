@@ -11,8 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Slf4j
@@ -174,7 +174,7 @@ public class OfflineImpl implements IOfflineService {
             }
 
             // 离线消息存储成功，发送push给接收者
-            restTemplateService.pushNotification(receiverID, protocalWithTime.getDataContent());
+            restTemplateService.pushNotification(receiverID, userInfo.getUser_name().concat(":").concat(protocalWithTime.getDataContent()));
             return true;
         }
 

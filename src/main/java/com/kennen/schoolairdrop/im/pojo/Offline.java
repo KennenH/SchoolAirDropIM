@@ -1,7 +1,6 @@
 package com.kennen.schoolairdrop.im.pojo;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * @author kennen
@@ -19,59 +18,59 @@ public class Offline {
 
     @Id
     @Column(name = "offline_id")
-    private int offlineID;
+    private int offline_id;
 
     @Column(name = "finger_print")
-    private String fingerPrint;
+    private String finger_print;
 
     @Column(name = "sender_id")
-    private String senderID;
+    private String sender_id;
 
     @Column(name = "receiver_id")
-    private String receiverID;
+    private String receiver_id;
 
     @Column(name = "message")
     private String message;
 
     @Column(name = "message_type")
-    private int messageType;
+    private int message_type;
 
     @Column(name = "send_time")
-    private long sendTime;
+    private long send_time;
 
     @Column(name = "received")
     private int received;
 
-    public int getOfflineID() {
-        return offlineID;
+    public int getOffline_id() {
+        return offline_id;
     }
 
-    public void setOfflineID(int offlineID) {
-        this.offlineID = offlineID;
+    public void setOffline_id(int offlineID) {
+        this.offline_id = offlineID;
     }
 
-    public String getFingerPrint() {
-        return fingerPrint;
+    public String getFinger_print() {
+        return finger_print;
     }
 
-    public void setFingerPrint(String finger_print) {
-        this.fingerPrint = finger_print;
+    public void setFinger_print(String finger_print) {
+        this.finger_print = finger_print;
     }
 
-    public String getSenderID() {
-        return senderID;
+    public String getSender_id() {
+        return sender_id;
     }
 
-    public void setSenderID(String sender_id) {
-        this.senderID = sender_id;
+    public void setSender_id(String sender_id) {
+        this.sender_id = sender_id;
     }
 
-    public String getReceiverID() {
-        return receiverID;
+    public String getReceiver_id() {
+        return receiver_id;
     }
 
-    public void setReceiverID(String receiver_id) {
-        this.receiverID = receiver_id;
+    public void setReceiver_id(String receiver_id) {
+        this.receiver_id = receiver_id;
     }
 
     public String getMessage() {
@@ -82,20 +81,20 @@ public class Offline {
         this.message = message;
     }
 
-    public int getMessageType() {
-        return messageType;
+    public int getMessage_type() {
+        return message_type;
     }
 
-    public void setMessageType(int message_type) {
-        this.messageType = message_type;
+    public void setMessage_type(int message_type) {
+        this.message_type = message_type;
     }
 
-    public long getSendTime() {
-        return sendTime;
+    public long getSend_time() {
+        return send_time;
     }
 
-    public void setSendTime(long send_time) {
-        this.sendTime = send_time;
+    public void setSend_time(long send_time) {
+        this.send_time = send_time;
     }
 
     public int getReceived() {

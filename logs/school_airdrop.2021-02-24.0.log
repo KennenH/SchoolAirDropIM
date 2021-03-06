@@ -1,0 +1,151 @@
+[2021/02/24-12:43:02] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 5848 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-12:43:02] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-12:44:15] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 12136 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-12:44:15] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-12:44:18] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 4.033 seconds (JVM running for 4.668)
+[2021/02/24-12:45:18] [nioEventLoopGroup-5-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 推送通知验证开始执行
+[2021/02/24-12:45:18] [nioEventLoopGroup-5-3] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : 已获取公钥
+[2021/02/24-12:45:18] [nioEventLoopGroup-5-3] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : public key == > PublicKey{success=true, public_key='-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAznzDT6HqScmf0wWVZEqz
+8fOyxa1sIz9Z1kYAXBVz/GWLnw/xqdhCT/4InCiCw1EgR7MDgqktAxIuu9hCv2vB
+RcqDslHO34OSyYO69ZtHp+0VzIU52uXiY8lZfEq+0NVdUIv2psTKiGqn6+X9Ham7
+NBxLu9LyUrEDBM5T/t7R+l/6zIbtlQ10s5omSlOspKE+MDufA7A/IWqoA/JnDOup
+M8jrwiWgscCHWC5dQxtak91MA6H1VR1yglBcKVAwo+rz7DztmW0N0R/ppdxnONtO
+wDBZKu4tilU+iIMVbKNscJOVu2TguqCDt4ezCzqTSbx0sVpmQt6xvV1TFtLwia1F
+sQIDAQAB
+-----END PUBLIC KEY-----
+'}
+[2021/02/24-12:45:18] [nioEventLoopGroup-5-3] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : 验证信息失败 Authorize{code=0, msg='null'}
+[2021/02/24-12:45:18] [nioEventLoopGroup-5-3] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : ????!!!!????!!!!
+[2021/02/24-12:46:09] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 17056 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-12:46:09] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-12:46:13] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.865 seconds (JVM running for 4.5)
+[2021/02/24-12:46:23] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 推送通知验证开始执行
+[2021/02/24-12:46:23] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : 已获取公钥
+[2021/02/24-12:46:23] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : public key == > PublicKey{success=true, public_key='-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsSfDXnCQia/pKweI2Mdd
+1PlY8Hs0OFvCpBw4vnFq/ebhPAY0V0/eA+tUM1cEfqVFXfGjrshHBhwSThCeKffb
+q48M+jttXOaXGfi1vzFG5yUpOJ8m5xhq+R92v8e9jfMMwjExP8WYXDgQlFv9Kg3d
+yLUWR/Es1umekDuHO+7soFTJoqDgW8V6oFmKOEpLZWGMGAs8kaPRahgjh1ElXsPF
+9QcZ7iXPbNw0RGSwJHymEyLn5ggvrArTvUiFozvaiVCN/sWCuv+MXfuOy0M1Sg4J
+5bAqC7wVIWQFJ9WAttesdEmpQnKf/FMM1USt/Ewz0X1/1Fi85TSWxtVOFdHnP9x2
+xQIDAQAB
+-----END PUBLIC KEY-----
+'}
+[2021/02/24-12:46:24] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : 验证信息失败 Authorize{code=0, msg='null'}
+[2021/02/24-12:46:24] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : ????!!!!????!!!!
+[2021/02/24-13:16:39] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 1804 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-13:16:39] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-13:16:43] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 4.33 seconds (JVM running for 5.004)
+[2021/02/24-13:17:52] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : public key == > PublicKey{success=true, public_key='-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3qYHk0gMCER9MDPG9flD
+cXYYekhgSEuk0roaqYL0NhZrXcgNzRer0HgyyUWsgCSahIfsgU3SDBicJvG6otA2
+jmDHg4B8prnf7QoV9rkpzyeGPoErFR1ZTMxIDKbuvps/mxFKulOgmyeETsVwvidm
+iXKN2nPTCN9eCqJvylBYj7gs6NThhTljr/ZE6ZZrhrVbPjsPXpev3UkNeYl7KqnU
+Ad3Vn7reLdlu1e46HKy3lbtQvQDOQrpqtTdWIhwsdtKFdcI3q8gXc5ai+XwQLT1K
+W212a/9JqJsF9afQv+lbWHl/lp7pyJgkUBt+tIvyhaeBypmhexzZvlroLuWRPQ2k
+OwIDAQAB
+-----END PUBLIC KEY-----
+'}
+[2021/02/24-13:17:52] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : 验证信息失败 == > <200,Authorize{code=0, msg='null'},[Date:"Wed, 24 Feb 2021 05:17:52 GMT", Server:"Apache/2.4.46 (Unix) PHP/7.3.26", X-Powered-By:"PHP/7.3.26", Set-Cookie:"PHPSESSID=mg65dpb1a1gfgtkhp14ieriuvm; path=/", Expires:"Thu, 19 Nov 1981 08:52:00 GMT", Cache-Control:"no-store, no-cache, must-revalidate", Pragma:"no-cache", Content-Length:"495", Keep-Alive:"timeout=5, max=99", Connection:"Keep-Alive", Content-Type:"application/json; charset=utf-8"]>
+[2021/02/24-13:22:16] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 13188 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-13:22:16] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-13:22:19] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.963 seconds (JVM running for 4.624)
+[2021/02/24-13:22:31] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : public key == > PublicKey{success=true, public_key='-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzk8UCN+Du87T7J239o3G
+VVlMBroF1Hmk5hNqAd2thKmksb6xhjYKU7cvtR+gGL3OBgAesD1tS+gOHpbTGqws
+A9sSF9emwGtLXUJGiIMT/RrxDrLBDY/DivUjWRh9cwy412970stQRxtDQS1Kflg1
+cEyIsyBV/irvrp3HfFcck7xqS678/Rmkn0798lUG2pBluRUtp59U28jB9pdUmSYW
+NvxJJZmcWsJYXw5pg/acUzrj3eAjPtGMslL5OchRF0xs9slAMQas+WSEhZc85hO6
+D35k/xHTlN+3yELSGenVrHcdDbZd490EWOqy5AK9WCsMyHlZSIFZvR50vMoS/lHK
+AQIDAQAB
+-----END PUBLIC KEY-----
+'}
+[2021/02/24-13:22:31] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : 验证信息失败 == > <200,Authorize{code=0, msg='null'},[Date:"Wed, 24 Feb 2021 05:22:31 GMT", Server:"Apache/2.4.46 (Unix) PHP/7.3.26", X-Powered-By:"PHP/7.3.26", Set-Cookie:"PHPSESSID=kt7hppvprraottppmav4nmvjj0; path=/", Expires:"Thu, 19 Nov 1981 08:52:00 GMT", Cache-Control:"no-store, no-cache, must-revalidate", Pragma:"no-cache", Content-Length:"496", Keep-Alive:"timeout=5, max=99", Connection:"Keep-Alive", Content-Type:"application/json; charset=utf-8"]>
+[2021/02/24-13:25:29] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 10552 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-13:25:29] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-13:25:32] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.838 seconds (JVM running for 4.516)
+[2021/02/24-13:25:50] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : public key == > PublicKey{success=true, public_key='-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArAX1yHegZksaZp6+NBmI
+XAmF4xbnGwOTY9+F459bzr17IqJRB6iQf3h/6S3jSXar020OIKu0Q2NT7CwIhcC/
+TMfo506vP1ZC62rlAppB4wg1qK3dGoAI57aE3uKHqeXSPWPpd4DDTPKQR38wJ9Op
+jYNXtyyQoXW3JBfU4tANxIQ/lQDpl5a5yoVL9n56q3VYYiIUZVI7l8s5CkzIa0Nx
+LHWHN+tUmX5fWkvsshB8VTPtddjbBqEE4cBva0x27TPXT8qLYtnu3fralOpdeqxx
+nQiQjVFOwU3n3vzj/a7o2wgGUAo3CmRsbpTB9aCcwS44g/cwjGSxCNr/nv1m/xRo
+WQIDAQAB
+-----END PUBLIC KEY-----
+'}
+[2021/02/24-13:25:50] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > MBgeGGEkzUr2/94aQPgY5+lFRuM6EAO+Kh4clp3bNmIzegrJ/pZKR9huMg5C6MB7blpesgrbreUXl2XAE45iPuDOLWutQdtbA8TqrIJ/qjmZzUswwk90kOU8u+2s8w2mQEUG40OcKeuiRsypYu594Vd3b6ALIb1JiesgNzUISAN5HzyO4274jxYT0VCOgJQD8U2YVCFiYFhimGkwBwWkSTN/GeOTQrckUrvnEWWGaFe1Aq3yyE79NWGef9T1xJu1FPc8A0/Wjm1XdnDIpormAxPikmL0QTxFQOf2DSX5c3C1wvXuENOSuOp/IuOV8IQeUH4rh+5PgcJmRUvk+LH+Tg==
+[2021/02/24-13:25:51] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : 验证信息失败 == > <200,Authorize{code=0, msg='null'},[Date:"Wed, 24 Feb 2021 05:25:51 GMT", Server:"Apache/2.4.46 (Unix) PHP/7.3.26", X-Powered-By:"PHP/7.3.26", Set-Cookie:"PHPSESSID=tr4oeo8q7unbtca6fki8q0qdp8; path=/", Expires:"Thu, 19 Nov 1981 08:52:00 GMT", Cache-Control:"no-store, no-cache, must-revalidate", Pragma:"no-cache", Content-Length:"499", Keep-Alive:"timeout=5, max=99", Connection:"Keep-Alive", Content-Type:"application/json; charset=utf-8"]>
+[2021/02/24-13:33:59] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 14544 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-13:33:59] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-13:34:03] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 4.143 seconds (JVM running for 4.789)
+[2021/02/24-13:34:08] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : public key == > PublicKey{success=true, public_key='-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5ILRqXDwXH927p/sIhvf
+1roTkCG/nvDdL0tJQldlVClJxMKdPAaO5h1npieqXgrHyvKNq2VpV/ba03NWOPai
+ZbIF6EBTEM1w/nXqEv3ZiiIqTcBSpL8umKDEuCOHzkjR7FClYiynTqfR8JxvgMNe
+o2ApciduVERAJrXDxamQ/JBVI0xtfPVBTDgKnCJSr3FsDqMxNHHPe9GCA2GNNB4K
+/Z/F6Mwb0dVETf7BY5xTooc7lOH8rXh+c+zqxgjN+at6DZQVv95NEKM/HiXwOS5x
+SdaExu6MNLucxYL/HTAFYJQUKiSjUuK2pTwlYjnEIQV3WUfaFSIEaZ1vgZcWlngG
+UwIDAQAB
+-----END PUBLIC KEY-----
+'}
+[2021/02/24-13:34:09] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > bYabAsN+TFLA4xgaE8BJyiFN5sQ5ysfKMKv3yA4H8kv4dhtU8DnFjLEhKupIFvDCiOST4qJMSTE+CwKjJOZyi8hESV4P8E6qnDryHaRrdcvlSK/lh8nmsriqTN7ZbqZ3df01iAcSJE1SfTwFlWGRViorzZihQmtQlWH91j4TlWqyeVKlbhckTExK2Tujpg/HKoyWHg7G8wfZN8GJj4nYUXjvC64qcFcJbh6FOtgh8C6PCievkcYBq15zqicesI0woxTm9eUApFCqq/Ne40aMDhIzYBYE0e4W4HMSlD6acYqX0HT+cCBYS36FDiBC7egMTtWdLTu9s63N3PKxcp7P1Q==
+[2021/02/24-13:34:09] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : 验证信息失败 == > <200,Authorize{code=0, msg='null'},[Date:"Wed, 24 Feb 2021 05:34:09 GMT", Server:"Apache/2.4.46 (Unix) PHP/7.3.26", X-Powered-By:"PHP/7.3.26", Set-Cookie:"PHPSESSID=t089l4o693a3ii4nvu3ucsggh9; path=/", Expires:"Thu, 19 Nov 1981 08:52:00 GMT", Cache-Control:"no-store, no-cache, must-revalidate", Pragma:"no-cache", Content-Length:"2264", Keep-Alive:"timeout=5, max=99", Connection:"Keep-Alive", Content-Type:"application/json; charset=utf-8"]>
+[2021/02/24-13:34:32] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 18548 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-13:34:32] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-13:34:36] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.947 seconds (JVM running for 4.605)
+[2021/02/24-13:45:42] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 300 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-13:45:42] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-13:45:45] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.709 seconds (JVM running for 4.363)
+[2021/02/24-13:51:59] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 16560 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-13:51:59] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-13:52:02] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.886 seconds (JVM running for 4.533)
+[2021/02/24-13:52:52] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > au8CxWjstPaQ1MuEXW0BzPJLFSVxyPnAbN40dQsRZZexgwN4q0Nhd/+3oZe0g3WH7DM2C+apyDS8Y88r0X6t0KvyEyv74206GATt7dwtph/i9K1KzAvwj+8pjpvyM8kt/ILT+FZVKmVdWfOj2c9jkcvgKntGIzU+lbBI0mKG75/xgaeZHMj+3VBLuFbFvRtXEJx9dntyMNcHWhCXSSImEiyUUzRDEOMl3vKwwl4JC3r/aj8o2MA5KYxPRJiOloZENQhnRgiPh8HZc+8NBWB0BjbeQbYiGb8LvVFA+GtzU1okLB2rYLQe8dTlW0yRek9HbVu6fNtsReiJmdrt7JKBiw==
+[2021/02/24-13:52:57] [nioEventLoopGroup-5-2] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > Qwc89qHeeAA9Ss6zZAmynT4AKgcjhRVkh72pu9Hm/c/wN2Un+FAuuFGht7Z38bmVrblbNVzjD8vs/4AZnu9LS4c+mbyAd/FGSgqZpzS+fTmQz7bQ7XjKzOqNlZs8InnNh4nTJ8dYM27nIMLw3LXNS+OtTmHHpURBbRslm4TjEkvwVwhT65xoLyblB13UEDYnmcZrQXwgNl5Cqpb9ydBDFGeFRVp8itMyc2rhwPEl/6p0CFDGAj8wDeS3Db7tneHn4NkXqeeEs/GEnQvFglrNrf2lb501S8o1s4jatfrWI9oQKcjPA2BhaO7jJeguSpT7SMywO4GPwnQoRMC5gnmMRQ==
+[2021/02/24-13:52:58] [nioEventLoopGroup-5-3] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > WQ+LxKlewjeA1qGsisMbuqpFAkdEhIHaxozkcunNLfNmLrblOd1iULXcrKBZ6vWiMsMsm/dWv03bOH3BpFG4w+00n7Hb4GTkngmKpRAXrjYQu4mRMvbTTfjZ/ABMBumQ4etraja055TkLaivqv67aZdt7nflfZZ4e+7atxydljGWDffDKLYRaWLKKXfFfE1P//bZ5FifA6wzYCvWV/en38niVj+ukqlwbiaFDm5fqK7InWzSMn6zkSc8YSk1mL11UggwSLE1+XBtMgWlEzDjf+LX4kLlfCAdNVeBHraPpf9ta1kEDiWIDGSYcFE9B9g4wVxJFvdDZVW+2jU4aWpOJA==
+[2021/02/24-13:53:16] [nioEventLoopGroup-5-4] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > OyKJSaMwzjceRBX62wV9sZlnuPshvI8S7YjzOQ9WpDeynn68oA+l898M8t8Bsf9CkX3vjTGUMOu2NTcUDIKZsjji1N9Rv84uxupVpiynmystBqXKNanLA6HwDrxnSQjbIo+dP8Q+pGrW3cRuxt4rAPBzc+yKysQGf0lLipdaBOvVJdsgjfbV2eOLemFvgP9JTLXkArqLecJZl+47gxbrwvA3yNJuw0NBhKcl6nDMbkIdZqV9VbesFFEbBRza8IU1CGTQh5/Wl5ONwQBJ67cylWe8Juy+/fm/o5E+kqhk5c2IwAtGGp7O1QEMg5j3DtUVbjOrHXhEAUyONnEJ2OXtOA==
+[2021/02/24-13:53:21] [nioEventLoopGroup-5-5] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > OVqhzm71wnNBm5e9fkUFCwdjMcKmhwupsgv4rY0mkdcPmTzuYTngq7qlCL0UUiriQ686PXZhw5fBONhepmoaTCoDHwP03OtMPux33Khb27uNElg0Lcuwe69kn7s4rEzk07NSznN97Sltk4h3LRV0A7RtRWLJ4wyc5G9YHO5htHD4tEQh2SyLDqjZCMc4ake4Dmo99JxW+ABk832nyH10InLhLnNsOz5+oONTjNkfY1e+jYC6oGVqi+tyu2+6+dudVMuXNLmlmKVMTBc33Eq6y2sTDd9T9AaJZiQpEc2hWpueTc22nYCsmu7zor1QGGBxhzb0EPeOUXW4n1BCoanWSg==
+[2021/02/24-13:53:21] [nioEventLoopGroup-5-6] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > Jhs0U13Ou0iiIQMyz74pbBRmRBgSHibtroWosiuaVUp438lnTIapBIfbUQDQ5eGQq4DbUZgcCx5Lga+CtQz5eY2H5dc88xvC2IIkqwhioZ4oiuBsOfYFBidm3t8O8bLGfIAc6EUC3nBCsR9qlrgnjcbmY7wvopQsXWO7jOgbmZxUpteBfODrwEjfao0/LgqOhjZfpmByJsX7kzJWKlDTraqxyVUinpnG5cg/NK6pKvMDgbP7m/3sv2CC+6lTbP9tqrmkwBrQB8R8ZiIv/rJ07BCJzL/C0B0Rk9mXWJd80cYlmAaP84DTZyi625pa2N77UyjaO0cor4HpdmJVsWB7bA==
+[2021/02/24-13:54:09] [nioEventLoopGroup-5-7] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > EMSrro+XdHjOe7jVcQS/6oeAzkQkcEWSvHCo4VSMhMjO1V8EVRH+oicYO0dzFD+7XJWdHLrw8vTh+A59rnqxeJXiY23YJxaq30fx9VvpEdU2XNxQLFxsApxxryZYfIFis1f2cDBCmmc6fSb8A/LGPgyJhGfCF2lA0AVT6ZeEEilX4m+7E7Uy//YA3xoFGw+vX1cC+yWiF5dX3s3bd97tMms2UdIvOLutLQHBJt9bniVUtjkpDd7NyqqSmWCxjVKGB8Nd/jKK3RzQ4H5ADrcM3kN8lTFmIICZum8Vk6vkenHTOlXL8yn+rQkOjBBjf/mLJX61i9KNoBieJgtduIvMFw==
+[2021/02/24-13:54:14] [nioEventLoopGroup-5-8] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > t83orkdhwViNmHfTE3dxRRVbzwGQXHulMdPLuxdurZfM6OakUJedBGgFvlaGFXd7fXauV9unosfShvFHLzl0Q/sQPxmpImvAk+sajD4lHNIotuS+mbhrwg0qik6tmsLw+2F9kN9N9Mkrl1HTIx0ZFT9iswzv7IoFD2YCCBaOGjsmPb7NTtTGbzKm15P6bhSdcHEEZntVfRIOjzvThuCgai1lBHruNzKhs0GNlQ8uN8h5H6IuUmtkCb29MKmopwJ1f+iEun0Wdodh9AqebSbqQ4IOHOaWozEiuAwXfLdF6kGw9bpdds1WEm1Px1oXqkjwjZihja9D4FmGoeD9cbqMqA==
+[2021/02/24-13:54:14] [nioEventLoopGroup-5-9] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > BR9r2NsHXDW0kQDHJ30OzUNykKHrbY0uA9czAj4yAAI1HwfIDewe1lFQWjqWCr26ZQ/25sjuux3bMPKucWxKtYzPTGKfnK86yM8q9yOWP7AMjvsnAFL/g4HcRuUfuUO8rCdr8XZeYfXNIahfE0THdcq6UhqQVaZcW4LigjlZxY6cbeJ8d7kUR9nQnQxjlIzpxfpqjUIyp4qB+RZjh7083ybYt/cp59E1UB4XDHHFPTAbNlQDGNh05USxmgHlvvanDaMsjY7Fzzt7illzA/YdMVJe3xHP+PpbE2jhHsvwJYHHDHXN9rPfRQgf2u6Fus7AnBFsxNqDQvn5ycSaW8rRUg==
+[2021/02/24-13:54:32] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 16388 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-13:54:32] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-13:54:36] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.788 seconds (JVM running for 4.476)
+[2021/02/24-13:54:56] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > r/B3iuPRSxDdcaCK24DIV1/va9TFO2isTs4MgCH59XSlKylYMNUiI3U21y3vUbtJixboMEccowQF1TeOWITBu1wPqaz3iPHpz0U2LIP+xZ7uuJYMRbBVFQNfvG3j4/tx2Te9kASJN0SCY7BAq7k1VPipL4LBHsgtZi5XSp/OQ0A3YyVx9XFXB56zhIyTSAsKrG5kw9rb0kz+FwlbESp3KuoHv1V7iDrROuuEG4vu0p4rmCYA5TiPseYTkQZCh0zOR54iY9FDihjDkmI1boo6aaZ2ZeD4Ps4/jvrwOAoOWE+laG+YECVCaz2087fyfsriWnsdc2BZ0aSttNxRdVGTFQ==
+[2021/02/24-13:55:26] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 22436 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-13:55:26] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-13:55:29] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.716 seconds (JVM running for 4.362)
+[2021/02/24-13:56:13] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 13948 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-13:56:13] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-13:56:16] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.841 seconds (JVM running for 4.493)
+[2021/02/24-14:02:56] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 8724 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-14:02:56] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-14:03:00] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.882 seconds (JVM running for 4.554)
+[2021/02/24-14:03:37] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > SHRYxl3Mu7sVz/Tj/Zdru+YCAlL/xwmBjv/PCQTJRQnl+OSWrwEJwPB6ep8Wyyf1vHjc0L97Rc0HU36SzIBnKl33e3wTj6u831wIin1mNvYVwCl/VQyTdKSJHcyQVaaa3UYjhykuq+IucBjph8SUnonlIDm3cmtGbCiR9qJUK4xV2Prhtyu8lOLsZlsszLeCihbXSiQkYKTMn7P16y9cDolX8xqRmAhESYZ+M1ahG6goJzwdK4utRgItKBn6f0aaNOk3IgMQ/7sAcjOtaEE8OCLjxFeiT0QujbVVCmRC+ENO1Inai1EKFBjAedb/MCVRNnbDKmDzPq8lcMaI7JU8kg==
+[2021/02/24-14:03:37] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : 验证信息已通过，推送通知成功
+[2021/02/24-14:11:14] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 5244 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-14:11:14] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-14:11:17] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.823 seconds (JVM running for 4.446)
+[2021/02/24-14:11:29] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > 
+[2021/02/24-14:11:34] [nioEventLoopGroup-5-2] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > 
+[2021/02/24-14:11:34] [nioEventLoopGroup-5-3] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > 
+[2021/02/24-14:14:03] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 10972 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-14:14:03] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-14:14:07] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.851 seconds (JVM running for 4.529)
+[2021/02/24-14:14:13] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : encrypted user id == > mmHKoOhWSnjwBoqlkFGFRUjCv56gGAGjoBIVWv0CKe6UMRB9V4stMTTMiQBUvOfHV6xzQu/BtTNOzBQAGYq6I55+M/v6YdYfkkEYyJJwUdLEGY/vfW+EpEhqM9l4kfkOiaso3RWl1aibbsK/+DrCc0lQI3uhTmI2Wh4ShnF+uobM3ct0v8qMUkgH2181bxxuoTtkRAFMYPpHHlBkfFUxUHgiBoYkU40+1Fa18Xti2zRuV/MrIwK1tPYL7RR8H+6OksSm12zF8hy6YII1UZc5ZAIaS0pZGr/m5PuMCnnqoKlYu5SdP1Vj6udcxGLp23lmB0yZfX0Q36FdAcS7YQJKiQ==
+[2021/02/24-14:14:14] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : 验证信息已通过，推送通知成功
+[2021/02/24-14:21:17] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 3216 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-14:21:17] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-14:21:20] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.792 seconds (JVM running for 4.444)
+[2021/02/24-14:21:55] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : 验证信息已通过，推送通知成功
+[2021/02/24-14:22:38] [nioEventLoopGroup-5-2] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : 验证信息已通过，推送通知成功
+[2021/02/24-14:26:19] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 18412 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-14:26:19] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-14:26:22] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.774 seconds (JVM running for 4.441)
+[2021/02/24-14:26:30] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : 验证信息已通过，推送通知成功
+[2021/02/24-14:34:00] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 7264 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/02/24-14:34:00] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/02/24-14:34:04] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.92 seconds (JVM running for 4.625)
+[2021/02/24-14:34:30] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.RestTemplateService] : 验证信息已通过，推送通知成功

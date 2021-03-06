@@ -4,10 +4,11 @@ import com.kennen.schoolairdrop.im.impl.ServerLauncherImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
-@EnableSwagger2
-
+@Configuration
+@EnableScheduling
 @SpringBootApplication
 public class IMApplication implements CommandLineRunner {
 

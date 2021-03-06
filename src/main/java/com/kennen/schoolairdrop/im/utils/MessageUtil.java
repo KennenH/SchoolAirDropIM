@@ -34,13 +34,13 @@ public class MessageUtil {
      */
     public static Offline assemblyOffline(ProtocalWithTime protocal) {
         Offline offline = new Offline();
-        offline.setFingerPrint(protocal.getFp());
+        offline.setFinger_print(protocal.getFp());
         offline.setMessage(protocal.getDataContent());
-        offline.setMessageType(protocal.getTypeu());
+        offline.setMessage_type(protocal.getTypeu());
         offline.setReceived(protocal.isReceived());
-        offline.setSenderID(protocal.getFrom());
-        offline.setReceiverID(protocal.getTo());
-        offline.setSendTime(protocal.getSendTime());
+        offline.setSender_id(protocal.getFrom());
+        offline.setReceiver_id(protocal.getTo());
+        offline.setSend_time(protocal.getSendTime());
         return offline;
     }
 

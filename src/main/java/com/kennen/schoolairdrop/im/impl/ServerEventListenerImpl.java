@@ -241,7 +241,7 @@ public class ServerEventListenerImpl implements ServerEventListener {
      * {@link OfflineController#getOfflineNum(String)}
      * <p>
      * 2、业务层通过给发送者id和token来获取具体消息
-     * {@link OfflineController#pullOfflineByID(String, String, String, List)}}
+     * }
      * <p>
      * 3、在确认用户收到之后先准备ack而不先发送，等待
      * 下一次消息获取时再将ack包一并发送，减少一半
