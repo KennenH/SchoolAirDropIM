@@ -83,7 +83,7 @@ public class OfflineImpl implements IOfflineService {
         // 此处是给receiver进行离线消息数量的ack，因此receiver小就调用ClientA，大就调用ClientB
         if (receiver < sender) {
             offlineNumsDao.ackReceiverOfflineNumsAsClientA(receiverID, senderID);
-        } else {
+        } else if (receiver > sender) {
             offlineNumsDao.ackReceiverOfflineNumsAsClientB(receiverID, senderID);
         }
     }
@@ -155,12 +155,13 @@ public class OfflineImpl implements IOfflineService {
             String fingerPrint = protocalWithTime.getFp();
             String receiverID = protocalWithTime.getTo();
 
-            int client = receiverID.compareTo(senderID);
+            int receiver = Integer.parseInt(receiverID);
+            int sender = Integer.parseInt(senderID);
             // 更新两个用户之间的最新离线消息
-            if (client < 0) {
-                offlineNumsDao.updateLatestOfflineClientA(receiverID, senderID, fingerPrint);
-            } else if (client > 0) {
-                offlineNumsDao.updateLatestOfflineClientB(receiverID, senderID, fingerPrint);
+            if (receiver < sender) {
+                offlineNumsDao.updateLatestOfflineReceiverClientA(receiverID, senderID, fingerPrint);
+            } else if (receiver > sender) {
+                offlineNumsDao.updateLatestOfflineReceiverClientB(receiverID, senderID, fingerPrint);
             } else {
                 return false;
             }
