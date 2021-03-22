@@ -3,16 +3,19 @@ package com.kennen.schoolairdrop.im.service.impl;
 import com.kennen.schoolairdrop.im.bean.ProtocalWithTime;
 import com.kennen.schoolairdrop.im.dao.*;
 import com.kennen.schoolairdrop.im.pojo.*;
-import com.kennen.schoolairdrop.im.service.RestTemplateService;
+import com.kennen.schoolairdrop.im.service.WebClientService;
 import com.kennen.schoolairdrop.im.utils.Constants;
 import com.kennen.schoolairdrop.im.response.ResponseResult;
 import com.kennen.schoolairdrop.im.service.IOfflineService;
+import com.kennen.schoolairdrop.im.utils.MessageUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @Slf4j
@@ -39,12 +42,16 @@ public class OfflineImpl implements IOfflineService {
     private OfflineFromAllDao offlineFromAllDao;
 
     @Autowired
-    private RestTemplateService restTemplateService;
+    private WebClientService webClientService;
 
     @Override
     public ResponseResult getOfflineBefore(String token, String senderID, long startTime) {
-        // 去掉token前面的 Bearer 前缀
-        token = token.substring(7);
+        try {
+            // 去掉token前面的 Bearer 前缀
+            token = token.substring(7);
+        } catch (Exception e) {
+            return ResponseResult.FAILED();
+        }
         AccessToken accessToken = accessTokenDao.findOneByAccessToken(token);
 
         if (accessToken != null) {
@@ -90,7 +97,12 @@ public class OfflineImpl implements IOfflineService {
 
     @Override
     public ResponseResult getOfflineNum(String token) {
-        token = token.substring(7);
+        try {
+            // 去掉token前面的 Bearer 前缀
+            token = token.substring(7);
+        } catch (Exception e) {
+            return ResponseResult.FAILED();
+        }
         AccessToken accessToken = accessTokenDao.findOneByAccessToken(token);
 
         if (accessToken != null) {
@@ -139,7 +151,7 @@ public class OfflineImpl implements IOfflineService {
             }
             return ResponseResult.SUCCESS("离线消息数量获取成功").setData(offlineNumsDetails);
         } else {
-            return ResponseResult.FAILED("用户不存在或者鉴权信息已过期 token -- > " + token);
+            return ResponseResult.FAILED("用户不存在或者鉴权信息已过期");
         }
     }
 
@@ -169,13 +181,23 @@ public class OfflineImpl implements IOfflineService {
             int table = receiverID.hashCode() % Constants.OFFLINE_TABLE_NUMS;
             try {
                 saveOffline(table, protocalWithTime);
-            } catch (Exception e) {
-                // 未知错误，离线消息存储失败
+            } catch (DataIntegrityViolationException e) {
+                log.info("消息已经存在，已忽略");
+            } catch (Exception e1) {
+                log.info("消息存储失败 -- > " + e1.toString());
                 return false;
             }
 
             // 离线消息存储成功，发送push给接收者
-            restTemplateService.pushNotification(receiverID, userInfo.getUser_name().concat(":").concat(protocalWithTime.getDataContent()));
+            webClientService.pushNotification(
+                    receiverID,
+                    userInfo.getUser_name()
+                            .concat(":")
+                            .concat(protocalWithTime.getTypeu() == 1 ?
+                                    "[图片]" :
+                                    MessageUtil.cutStringLength(
+                                            protocalWithTime.getDataContent(),
+                                            20)));
             return true;
         }
 

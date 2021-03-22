@@ -18,6 +18,9 @@ import javax.annotation.PostConstruct;
 @Component
 public class OfflineMessageHandler {
 
+    public OfflineMessageHandler(){
+    }
+
     /**
      * 处理离线消息
      *

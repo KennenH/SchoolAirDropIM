@@ -22,8 +22,6 @@ import java.util.List;
 @Slf4j
 public class ServerEventListenerImpl implements ServerEventListener {
 
-    private static Logger logger = LoggerFactory.getLogger(ServerEventListenerImpl.class);
-
     private final OfflineMessageHandler offlineMessageHandler = new OfflineMessageHandler();
 
     private final UserVerifyHandler userVerifyHandler = new UserVerifyHandler();
@@ -206,30 +204,35 @@ public class ServerEventListenerImpl implements ServerEventListener {
      */
     @Override
     public boolean onTransferMessage_RealTimeSendFaild(Protocal p) {
+        p.setQoS(true);
+
         final String receiver = p.getTo();
 
-        // 再次尝试发送
-        // 对方在线的情况下，才需要实时发送，否则走离线处理逻辑
-        if (OnlineProcessor.isOnline(receiver)) {
-            MBObserver resultObserver = (success, extraObj) -> {
-                if (!success) {
-                    // 对方在线但由于某种原因没有发送成功
-                    handleOfflineMessage(p);
-                }
-            };
-
+//         再次尝试发送
+//         对方在线的情况下，才需要实时发送，否则直接走离线处理逻辑
+        if (OnlineProcessor.isOnline(receiver) && p.getRetryCount() < 1) {
             try {
                 // 开始实时消息/指令的发送
-                LocalSendHelper.sendData(p, resultObserver);
+                LocalSendHelper.sendData(p, (success, extraObj) -> {
+                    if (!success) {
+                        // 对方在线但由于某种原因没有发送成功
+                        handleOfflineMessage(p);
+                    }
+                });
             } catch (Exception e) {
-                logger.debug(e.toString());
+                log.error(e.toString());
             }
         } else {
-            // 离线消息
             return handleOfflineMessage(p);
         }
+//
+//        try {
+//            handleOfflineMessage(p);
+//        } catch (Exception e) {
+//            return false;
+//        }
 
-        return false;
+        return true;
     }
 
     /**

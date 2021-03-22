@@ -5,7 +5,7 @@ public class Constants {
     /**
      * 本地测试使用
      */
-    public static final String SCHOOL_AIRDROP_BASE_URL = "http://81.69.14.64:8080/";
+    public static final String TEST_BASE_URL = "http://81.69.14.64:8080/";
 
     public static final String LOCAL_BASE_URL = "http://127.0.0.1:8080/";
 

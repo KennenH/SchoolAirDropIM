@@ -1,10 +1,5 @@
 package com.kennen.schoolairdrop.im.utils;
 
-import com.kennen.schoolairdrop.im.bean.ProtocalWithTime;
-import com.kennen.schoolairdrop.im.pojo.Offline;
-
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -12,36 +7,20 @@ import java.util.List;
  * @date 2020/12/15 19:57
  */
 public class MessageUtil {
-    /**
-     * 将从redis中取出来的 ProtocalWithTime 集合转换为Offline集合返回
-     *
-     * @param collection ProtocalWithTime集合
-     * @return Offline集合
-     */
-    public static List<Offline> protocalToOffline(Collection<Object> collection) {
-        List<Offline> list = new ArrayList<>();
-        for (Object object : collection) {
-            if (object instanceof ProtocalWithTime) {
-                ProtocalWithTime protocal = (ProtocalWithTime) object;
-                list.add(assemblyOffline(protocal));
-            }
-        }
-        return list;
-    }
 
     /**
-     * 将{@link ProtocalWithTime}组装为{@link Offline}返回
+     * 将字符串剪切为length长度，不足则取完整字符串
+     *
+     * @param data   要剪切的数据字符串
+     * @param length 要剪切的长度
      */
-    public static Offline assemblyOffline(ProtocalWithTime protocal) {
-        Offline offline = new Offline();
-        offline.setFinger_print(protocal.getFp());
-        offline.setMessage(protocal.getDataContent());
-        offline.setMessage_type(protocal.getTypeu());
-        offline.setReceived(protocal.isReceived());
-        offline.setSender_id(protocal.getFrom());
-        offline.setReceiver_id(protocal.getTo());
-        offline.setSend_time(protocal.getSendTime());
-        return offline;
+    public static String cutStringLength(String data, int length) {
+        if (length == 0) return "";
+        if (data.length() >= length) {
+            return data.substring(0, length - 1).concat("…");
+        } else {
+            return data;
+        }
     }
 
     /**
