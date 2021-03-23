@@ -34,6 +34,6 @@ public class WebClientService {
                 .body(BodyInserters.fromFormData("user_id", encryptedUserID).with("body", content))
                 .retrieve()
                 .bodyToMono(String.class)
-                .block(Duration.ofMillis(2500L));
+                .subscribe();
     }
 }
