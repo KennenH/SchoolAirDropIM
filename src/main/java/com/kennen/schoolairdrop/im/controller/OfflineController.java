@@ -26,9 +26,23 @@ public class OfflineController {
      *                  若无，则代表需要拉取最新的消息
      */
     @PostMapping("/pull")
-    public ResponseResult pullOfflineByID(@RequestHeader("Authorization") String token,
-                                          @RequestParam("sender_id") String senderID,
-                                          @RequestParam("start") long startTime) {
+    public ResponseResult pullOfflineByID(
+            @RequestHeader(
+                    value = "Authorization",
+                    required = false) String token,
+            @RequestParam(
+                    value = "sender_id",
+                    required = false) String senderID,
+            @RequestParam(
+                    value = "start",
+                    required = false) long startTime) {
+        if (token == null) {
+            return ResponseResult.FAILED("token not present");
+        } else if (senderID == null) {
+            return ResponseResult.FAILED("sender id not present");
+        } else if (startTime == 0) {
+            return ResponseResult.FAILED("start time not present");
+        }
         return offlineService.getOfflineBefore(token, senderID, startTime);
     }
 
@@ -42,7 +56,37 @@ public class OfflineController {
      * 这样便可以使用最后一条消息的指纹获取最后一条消息的内容和时间戳
      */
     @PostMapping("/num")
-    public ResponseResult getOfflineNum(@RequestHeader("Authorization") String token) {
+    public ResponseResult getOfflineNum(
+            @RequestHeader(
+                    value = "Authorization",
+                    required = false) String token) {
+        if (token == null) {
+            return ResponseResult.FAILED("token not present");
+        }
         return offlineService.getOfflineNum(token);
+    }
+
+    /**
+     * ack给定时间以及之前的消息
+     */
+    @PostMapping("/ack")
+    public ResponseResult ackOffline(
+            @RequestHeader(
+                    value = "Authorization",
+                    required = false) String token,
+            @RequestParam(
+                    value = "sender_id",
+                    required = false) String senderID,
+            @RequestParam(
+                    value = "start",
+                    required = false) long startTime) {
+        if (token == null) {
+            return ResponseResult.FAILED("token not present");
+        } else if (senderID == null) {
+            return ResponseResult.FAILED("sender id not present");
+        } else if (startTime == 0) {
+            return ResponseResult.FAILED("start time not present");
+        }
+        return offlineService.ackOffline(token, senderID, startTime);
     }
 }

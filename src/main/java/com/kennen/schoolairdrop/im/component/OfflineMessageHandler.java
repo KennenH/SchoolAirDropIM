@@ -3,7 +3,6 @@ package com.kennen.schoolairdrop.im.component;
 import com.kennen.schoolairdrop.im.bean.ProtocalWithTime;
 import com.kennen.schoolairdrop.im.service.IOfflineService;
 import lombok.extern.slf4j.Slf4j;
-import net.x52im.mobileimsdk.server.protocal.Protocal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

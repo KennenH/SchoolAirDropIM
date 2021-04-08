@@ -5,9 +5,11 @@ public class Constants {
     /**
      * 本地测试使用
      */
-    public static final String TEST_BASE_URL = "http://81.69.14.64:8080/";
+    public static final String TEST_BASE_URL = "http://schoolairdrop.com:8080/";
 
     public static final String LOCAL_BASE_URL = "http://127.0.0.1:8080/";
+
+    public static final String LOCALHOST = "127.0.0.1";
 
     /**
      * 推送通知静态公钥
@@ -32,4 +34,16 @@ public class Constants {
      * 一页数据量
      */
     public static final int ONE_PAGE_NUM = 15;
+
+    /**
+     * 请求前端退出app登录 消息类型
+     * <p>
+     * 仅服务端发送给前端
+     */
+    public static final int MESSAGE_TYPE_LOGOUT = 9;
+
+    /**
+     * 作为服务端的IM固定ID
+     */
+    public static final String SERVER_ID = "0";
 }

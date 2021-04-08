@@ -28,10 +28,10 @@ public class WebClientService {
      */
     public void pushNotification(String userID, String content) {
         // WebClient 非阻塞式请求
-        String encryptedUserID = RSAUtil.encryptWithPublicKey(Constants.PUSH_NOTIFICATION_PUBLI_KEY, userID);
+//        String encryptedUserID = RSAUtil.encryptWithPublicKey(Constants.PUSH_NOTIFICATION_PUBLI_KEY, userID);
         client.post()
                 .uri("appapi/push/pushNotification")
-                .body(BodyInserters.fromFormData("user_id", encryptedUserID).with("body", content))
+                .body(BodyInserters.fromFormData("user_id", userID).with("body", content))
                 .retrieve()
                 .bodyToMono(String.class)
                 .subscribe();

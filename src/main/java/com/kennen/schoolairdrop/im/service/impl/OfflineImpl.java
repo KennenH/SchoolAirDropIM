@@ -15,7 +15,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @Slf4j
@@ -70,8 +69,31 @@ public class OfflineImpl implements IOfflineService {
 
             return ResponseResult.SUCCESS("离线消息获取成功").setData(dataBaseMessages);
         }
-        // 移动端收取到的结果不论失败还是成功，bean的结构必须要一致，否则会导致 IllegalStateException
-        return ResponseResult.FAILED("用户不存在或验证信息已过期 " + token);
+        return ResponseResult.FAILED("用户不存在或验证信息已过期");
+    }
+
+    @Override
+    public ResponseResult ackOffline(String token, String senderID, long startTime) {
+        try {
+            // 去掉token前面的 Bearer 前缀
+            token = token.substring(7);
+        } catch (Exception e) {
+            return ResponseResult.FAILED();
+        }
+        AccessToken accessToken = accessTokenDao.findOneByAccessToken(token);
+
+        if (accessToken != null) {
+            String receiverID = String.valueOf(accessToken.getUserID());
+            try {
+                // ack给定时间之前的以及本身消息
+                offlineMessageAck(senderID, receiverID, startTime);
+            } catch (Exception e) {
+                return ResponseResult.FAILED("ack出错");
+            }
+            return ResponseResult.SUCCESS("ack成功");
+        } else {
+            return ResponseResult.FAILED("用户不存在或验证信息已过期");
+        }
     }
 
     /**
@@ -161,8 +183,8 @@ public class OfflineImpl implements IOfflineService {
         // 从数据库中查询发送者是否存在
         final UserInfo userInfo = userDao.getUserInfoByID(senderID);
 
-        // token存在，发送者用户存在
-        if (userInfo != null) {
+        // token存在，发送者用户存在 或者 消息源自服务器
+        if (userInfo != null || senderID.equals(Constants.SERVER_ID)) {
             // 将消息发送者token换为发送者id
             String fingerPrint = protocalWithTime.getFp();
             String receiverID = protocalWithTime.getTo();
@@ -181,23 +203,24 @@ public class OfflineImpl implements IOfflineService {
             int table = receiverID.hashCode() % Constants.OFFLINE_TABLE_NUMS;
             try {
                 saveOffline(table, protocalWithTime);
-            } catch (DataIntegrityViolationException e) {
-                log.info("消息已经存在，已忽略");
             } catch (Exception e1) {
                 log.info("消息存储失败 -- > " + e1.toString());
                 return false;
             }
 
-            // 离线消息存储成功，发送push给接收者
-            webClientService.pushNotification(
-                    receiverID,
-                    userInfo.getUser_name()
-                            .concat(":")
-                            .concat(protocalWithTime.getTypeu() == 1 ?
-                                    "[图片]" :
-                                    MessageUtil.cutStringLength(
-                                            protocalWithTime.getDataContent(),
-                                            20)));
+            // 非服务级消息才需要推送通知
+            if (!senderID.equals(Constants.SERVER_ID)) {
+                // 发送push给接收者
+                webClientService.pushNotification(
+                        receiverID,
+                        userInfo.getUser_name()
+                                .concat(":")
+                                .concat(protocalWithTime.getTypeu() == 1 ?
+                                        "[图片]" :
+                                        MessageUtil.cutStringLength(
+                                                protocalWithTime.getDataContent(),
+                                                20)));
+            }
             return true;
         }
 

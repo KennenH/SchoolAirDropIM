@@ -1,5 +1,25 @@
-[2021/03/23-11:31:07] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 1608 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
-[2021/03/23-11:31:07] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
-[2021/03/23-11:31:11] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 4.313 seconds (JVM running for 5.042)
-[2021/03/23-11:31:33] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 主线程要结束了
-[2021/03/23-11:31:40] [nioEventLoopGroup-5-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 主线程要结束了
+[2021/04/07-13:33:32] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 192 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/04/07-13:33:32] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/04/07-19:31:00] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 10076 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/04/07-19:31:00] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/04/07-19:31:03] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.587 seconds (JVM running for 4.258)
+[2021/04/07-22:35:16] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 2656 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/04/07-22:35:16] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/04/07-22:35:32] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 15056 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/04/07-22:35:32] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/04/07-22:35:35] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.75 seconds (JVM running for 4.427)
+[2021/04/07-22:52:49] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 13076 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/04/07-22:52:49] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/04/07-22:52:52] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.641 seconds (JVM running for 4.344)
+[2021/04/07-22:52:58] [http-nio-2020-exec-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 消息已经存在，已忽略
+[2021/04/07-22:57:12] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 17472 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/04/07-22:57:12] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/04/07-22:57:15] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.631 seconds (JVM running for 4.305)
+[2021/04/07-22:57:19] [http-nio-2020-exec-1] [INFO ] [com.kennen.schoolairdrop.im.service.impl.OfflineImpl] : 消息存储失败 -- > org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement
+[2021/04/07-23:05:17] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 7624 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/04/07-23:05:17] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/04/07-23:05:20] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.493 seconds (JVM running for 4.16)
+[2021/04/07-23:12:38] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Starting IMApplication on K-Laptop with PID 16716 (D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM\target\classes started by kennen in D:\hkn\MobileIMSDK-5.0.3\sdk_src\Server\SchoolAirDropIM)
+[2021/04/07-23:12:38] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : No active profile set, falling back to default profiles: default
+[2021/04/07-23:12:41] [main] [INFO ] [com.kennen.schoolairdrop.im.IMApplication] : Started IMApplication in 3.607 seconds (JVM running for 4.34)
+[2021/04/07-23:12:51] [http-nio-2020-exec-1] [INFO ] [com.kennen.schoolairdrop.im.component.IPInterceptor] : 非法ip --> 127.0.0.1
